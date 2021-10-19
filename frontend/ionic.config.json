@@ -1,0 +1,7 @@
+{
+  "name": "ShopGunpla",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
