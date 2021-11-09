@@ -48,6 +48,7 @@ export class GunplaService {
     bodyEncoded.append("escala", gunpla.escala);
     bodyEncoded.append("tipoGrado", gunpla.tipoGrado);
     bodyEncoded.append("descripcion", gunpla.descripcion);
+    bodyEncoded.append("img", gunpla.img);
     const body = bodyEncoded.toString();
     return this.httpClient.post<Gunpla>(this.endpoint, body, httpOptions)
     .pipe(
@@ -70,6 +71,7 @@ export class GunplaService {
     bodyEncoded.append("escala", gunpla.escala);
     bodyEncoded.append("tipoGrado", gunpla.tipoGrado);
     bodyEncoded.append("descripcion", gunpla.descripcion);
+    bodyEncoded.append("img", gunpla.img);
     const body = bodyEncoded.toString();
     return this.httpClient.put(this.endpoint + '/' + idMaqueta, body, httpOptions)
     .pipe(

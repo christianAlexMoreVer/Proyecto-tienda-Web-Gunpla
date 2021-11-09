@@ -30,11 +30,11 @@ public class Gunpla implements Serializable {
 	
 	private String img;
 
-	public long getId() {
+	public long getIdMaqueta() {
 		return idMaqueta;
 	}
 
-	public void setId(long idMaqueta) {
+	public void setIdMaqueta(long idMaqueta) {
 		this.idMaqueta = idMaqueta;
 	}
 

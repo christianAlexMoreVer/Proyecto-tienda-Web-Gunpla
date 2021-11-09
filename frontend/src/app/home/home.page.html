@@ -1,36 +1,8 @@
 <ion-header [translucent]="true">
-  <nav class="navbar navbar-expand bg-dark navbar-dark justify-content-center">
-
-    <li class="nav-item dropdown" style="list-style:none">
-      <img src="../../assets/icon/align-justify.png " id="Menu" data-toggle="dropdown">
-      <div class="dropdown-menu" id="menuDrop">
-        <a class="dropdown-item" style="text-align: center;">Menú</a> <br>
-        <a class="dropdown-item border" routerLink="">Mi usuario</a> <br>
-        <a class="dropdown-item border" routerLink="">Ofertas</a><br>
-        <a class="dropdown-item border" routerLink="">Número de contacto</a><br>
-        <a class="dropdown-item border" routerLink="">Redes Sociales</a><br>
-        <a class="dropdown-item border" routerLink="/seeker">Buscador</a><br>
-        <a class="dropdown-item border" routerLink="/home">Acerca de nosotros</a>
-      </div>
-    </li>
-    <a class="navbar-brand" href="#">
-      <img src="../../assets/icon/facebook.png" id="facebook" alt="Facebook">
-    </a>
-    <a class="navbar-brand" href="#">
-      <img src="../../assets/icon/twitter.png" id="twitter" alt="twitter">
-    </a>
-    <a class="navbar-brand" href="#">
-      <img src="../../assets/icon/instagram.png" id="instagram" alt="instagram">
-    </a>
-    <a class="navbar-brand" href="#">
-      <img src="../../assets/img/logo.png" id="logo" alt="Logo">
-    </a>
-  </nav>
-
+  <app-header></app-header>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="background">
-
   <div class="container w-75 my-3">
     <h1 style="text-align: center;">Sobre Nosotros</h1>
     Hola soy Christian Moreno dueño de la tienda de maquetas de Gundam, desde pequeño
@@ -63,4 +35,6 @@
     </div>
 
   </div>
+
+  <app-footer></app-footer>
 </ion-content>

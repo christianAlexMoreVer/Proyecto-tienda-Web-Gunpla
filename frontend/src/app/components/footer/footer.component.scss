@@ -1,0 +1,66 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    font-size: 11px;
+    background-color: #e2e0e0;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+.box .logo ion-icon{
+    padding-top: 10px;
+    width: 180px;
+    height: 50px;
+}
+
+.box .terms{
+    max-width: 350px;
+    font-weight: 500;
+    color: #7a7a7a;
+}
+
+.box h5{
+    margin-bottom: 10px;
+    color: #343434;
+    font-weight: 700;
+}
+
+.box a{
+    margin-top: 8px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+
+.box a:hover{
+    opacity: 0.8;
+}
+
+.box a ion-icon{
+    font-size: 15px;
+}
+
+.boxCopyright{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.boxCopyright p{
+    margin-top: 10px;
+    color: #7a7a7a;
+}
+
+.boxCopyright hr{
+    border: none;
+    height: 1px;
+    background-color: #7a7a7a;
+}

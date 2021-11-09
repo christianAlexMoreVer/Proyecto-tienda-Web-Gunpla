@@ -1,0 +1,12 @@
+package org.Christian.gunplas.entity.services;
+import java.util.List;
+
+import org.Christian.gunplas.entity.models.Pedido;
+
+public interface IPedidoService {
+	public List<Pedido> getAll();
+	public Pedido get(long idPedido);
+	public void add(Pedido pedido);
+	public void delete(long idPedido);
+	public void update(Pedido pedido, long idPedido);
+}

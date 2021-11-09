@@ -12,12 +12,12 @@ public class GunplaServiceImpl implements IGunplaService {
 	
 	@Autowired
 	private IGunplaDao GunplaDao;
-	
+
 	@Override
 	public Gunpla get(long id_Maqueta) {
 		return GunplaDao.findById(id_Maqueta).get();
 	}
-
+	
 	@Override
 	public List<Gunpla> getAll() {
 		return (List<Gunpla>) GunplaDao.findAll();
@@ -36,7 +36,7 @@ public class GunplaServiceImpl implements IGunplaService {
 	@Override
 	public void update(Gunpla gunpla, long id_Maqueta) {
 		GunplaDao.findById(id_Maqueta).ifPresent((x)->{
-			gunpla.setId(id_Maqueta);
+			gunpla.setIdMaqueta(id_Maqueta);
 			GunplaDao.save(gunpla);
 		});
 	}

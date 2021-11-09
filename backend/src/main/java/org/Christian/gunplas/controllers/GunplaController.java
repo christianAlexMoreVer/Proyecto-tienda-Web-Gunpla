@@ -4,8 +4,12 @@ import java.util.List;
 
 
 import org.Christian.gunplas.entity.models.Gunpla;
+import org.Christian.gunplas.entity.models.Pedido;
+import org.Christian.gunplas.entity.models.Usuario;
+import org.Christian.gunplas.entity.services.IEncryptService;
 import org.Christian.gunplas.entity.services.IGunplaService;
-
+import org.Christian.gunplas.entity.services.IPedidoService;
+import org.Christian.gunplas.entity.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,15 +25,53 @@ public class GunplaController {
 	
 	@Autowired
 	IGunplaService gunplaService;
+	@Autowired
+	IUsuarioService usuarioService;
+	@Autowired
+	IPedidoService pedidoService;
+	@Autowired
+	IEncryptService encryptService;
+	
+	@GetMapping("/pedido/{idPedido}")
+	Pedido getOnePedido(@PathVariable(value = "idPedido") long idPedido) {
+		return pedidoService.get(idPedido);
+	}
+	
+	@GetMapping("/pedido")
+	List<Pedido> getAllPedidos(){
+		return pedidoService.getAll();
+	}
+	
+	@GetMapping("/usuario/{idUsuario}")
+	Usuario getOneUsuario(@PathVariable(value = "idUsuario") long idUsuario) {
+		return usuarioService.get(idUsuario);
+	}
+	
+	@GetMapping("/usuario")
+	List<Usuario> getAllUsuarios(){
+		return usuarioService.getAll();
+	}
+	
+	@GetMapping("/maquetas/{idMaqueta}")
+	Gunpla getOneMaqueta(@PathVariable(value = "idMaqueta") long id_Maqueta) {
+		return gunplaService.get(id_Maqueta);
+	}
 	
 	@GetMapping("/maquetas")
 	List<Gunpla> getAllGunplas(){
 		return gunplaService.getAll();
+	}  
+	
+	@PostMapping("/pedido")
+	void add(Pedido pedido) {
+		pedidoService.add(pedido);
 	}
 	
-	@GetMapping("/maquetas/{idMaqueta}")
-	Gunpla getOne(@PathVariable(value = "idMaqueta") long id_Maqueta) {
-		return gunplaService.get(id_Maqueta);
+	@PostMapping("/usuario")
+	void add(Usuario usuario) {
+		String hashPass = encryptService.encryptPassword(usuario.getContrasena());
+		usuario.setContrasena(hashPass);
+		usuarioService.add(usuario);
 	}
 	
 	@PostMapping("/maquetas")
@@ -37,13 +79,35 @@ public class GunplaController {
 		gunplaService.add(gunpla);
 	}
 	
+	@PutMapping("/pedido/{idPedido}")
+	public void update(Pedido pedido, @PathVariable(value = "idPedido") long idPedido) {
+		pedidoService.update(pedido, idPedido);
+	}
+	
+	@PutMapping("/usuario/{idUsuario}")
+	public void update(Usuario usuario, @PathVariable(value = "idUsuario") long idUsuario) {
+		String hashPass = encryptService.encryptPassword(usuario.getContrasena());
+		usuario.setContrasena(hashPass);
+		usuarioService.update(usuario, idUsuario);
+	}
+	
 	@PutMapping("/maquetas/{idMaqueta}")
 	public void update(Gunpla gunpla, @PathVariable(value = "idMaqueta") long idMaqueta) {
 		gunplaService.update(gunpla, idMaqueta);
 	}
 	
+	@DeleteMapping("/pedido/{idPedido}")
+	void deletePedido(@PathVariable("idPedido") long idPedido) {
+		pedidoService.delete(idPedido);
+	}
+	
+	@DeleteMapping("/usuario/{idUsuario}")
+	void deleteUser(@PathVariable("idUsuario") long idUsuario) {
+		usuarioService.delete(idUsuario);
+	}
+	
 	@DeleteMapping("/maquetas/{idMaqueta}")
-	void delete(@PathVariable("idMaqueta") long idMaqueta) {
+	void deleteMaqueta(@PathVariable("idMaqueta") long idMaqueta) {
 		gunplaService.delete(idMaqueta);
 	}
 

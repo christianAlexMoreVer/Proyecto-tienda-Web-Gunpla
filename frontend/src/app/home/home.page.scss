@@ -1,19 +1,16 @@
 .container{
   text-align: justify;
-  background-color:#2b9cc2;
+  background-color:#CFDFEB;
 	border-radius:13px;
-	border:1px solid #ffffff;
+	border:1px solid black;
   font-family:'Roboto', sans-serif;
   font-size:15px;
+  opacity: 95%;
 }
 
 #container strong {
   font-size: 20px;
   line-height: 26px;
-}
-
-#gunpla-title {
-  background-color: blue;
 }
 
 #container p {
@@ -32,30 +29,3 @@
 ion-content.background{
   --background: url(../../assets/img/fondo.jpg) 0 0/100% 100% no-repeat;
 }
-
-#logo{
-  width: 50px;
-}
-
-#Menu{
-  width: 50px;
-}
-
-#facebook{
-  width: 40px;
-}
-
-#twitter{
-  width: 40px;
-}
-
-#instagram{
-  width: 40px;
-}
-
-#search{
-  background-image: url("../../assets/icon/zoom.png");
-  background-repeat: no-repeat;
-  background-position: right;
-}
-
