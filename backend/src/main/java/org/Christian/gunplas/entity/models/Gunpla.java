@@ -77,7 +77,7 @@ public class Gunpla implements Serializable {
 	public void setDescripcion(String descripcion) {
 		Descripcion = descripcion;
 	}
-	
+
 	public String getImg() {
 		return img;
 	}

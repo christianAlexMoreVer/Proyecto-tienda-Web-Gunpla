@@ -60,7 +60,7 @@ export class UsuarioService {
     bodyEncoded.append("apellidos", usuario.apellidos);
     bodyEncoded.append("contrasena", usuario.contrasena);
     bodyEncoded.append("correoElectronico", usuario.correoElectronico);
-    bodyEncoded.append("admin","0");
+    bodyEncoded.append("admin","false");
     const body = bodyEncoded.toString();
     return this.httpClient.put(this.endpoint + '/' + idUsuario, body, httpOptions)
       .pipe(

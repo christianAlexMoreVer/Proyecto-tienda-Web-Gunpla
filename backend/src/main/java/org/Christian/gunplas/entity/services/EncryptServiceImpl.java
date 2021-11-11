@@ -13,7 +13,6 @@ public class EncryptServiceImpl implements IEncryptService{
 
 	@Override
 	public String encryptPassword(String password) {
-		
 		return BCrypt.hashpw(password, BCrypt.gensalt());
 	}
 

@@ -26,7 +26,7 @@ public class Usuario implements Serializable{
 	
 	private String correoElectronico;
 	
-	private int admin;
+	private boolean admin;
 
 	public long getIdUsuario() {
 		return idUsuario;
@@ -68,15 +68,15 @@ public class Usuario implements Serializable{
 		this.correoElectronico = correoElectronico;
 	}
 	
-	public int getAdmin() {
+	public boolean getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(int admin) {
+	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
 
-	public Usuario(long idUsuario, String nombre, String apellidos, String contrasena, String correoElectronico, int admin) {
+	public Usuario(long idUsuario, String nombre, String apellidos, String contrasena, String correoElectronico, boolean admin) {
 		super();
 		this.idUsuario = idUsuario;
 		this.Nombre = nombre;

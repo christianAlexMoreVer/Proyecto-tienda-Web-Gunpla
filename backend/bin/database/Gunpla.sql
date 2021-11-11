@@ -15,10 +15,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-drop database if EXISTS db_gunpla;
-create database db_gunpla;
-use db_gunpla;
-
 --
 -- Table structure for table `maquetas`
 --
@@ -90,8 +86,10 @@ CREATE TABLE `usuario` (
   `Apellidos` varchar(50) DEFAULT NULL,
   `contrasena` varchar(255) DEFAULT NULL,
   `correoElectronico` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `admin` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`idUsuario`),
+  UNIQUE KEY `correoElectronico` (`correoElectronico`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +98,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Christian','Moreno','contra','correo@gmail.com');
+INSERT INTO `usuario` VALUES (1,'Christian','Moreno','$2a$10$F5ShnarUu1Y/mR1jkOOkx.EWhwZQMNCkY0XB9Su98NFF5Jx8wQAry','correo@gmail.com',0),(3,'Aythami','No lo sé','$2a$10$yeekNmt/4820iHS7NMmfXe5ApdVMl99RhK56m2qq/7YL0DEblBsrW','lolesPorLaNoche@gmail.com',1),(4,'Nael','No me acuerdo','$2a$10$VfeTU7YbF1iIUZ8e7/JAUuDEYiQzekj8ohvgKamQexWRMdU1vbssi','myloveNaoto@gmail.com',0),(5,'Der','23','$2a$10$Is8AtWrzfok/iFjUmOnA.OHJENAHehioCqWDflxnr4Y4L1Lq6iSWS','eses@nae',0);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -113,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-25 19:05:26
+-- Dump completed on 2021-11-09 17:15:52
