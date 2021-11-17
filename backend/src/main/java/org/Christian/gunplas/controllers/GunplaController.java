@@ -52,12 +52,12 @@ public class GunplaController {
 		return usuarioService.getAll();
 	}
 	
-	@GetMapping("/maquetas/{idMaqueta}")
+	@GetMapping("/maqueta/{idMaqueta}")
 	Gunpla getOneMaqueta(@PathVariable(value = "idMaqueta") long id_Maqueta) {
 		return gunplaService.get(id_Maqueta);
 	}
 	
-	@GetMapping("/maquetas")
+	@GetMapping("/maqueta")
 	List<Gunpla> getAllGunplas(){
 		return gunplaService.getAll();
 	}  
@@ -106,7 +106,7 @@ public class GunplaController {
 		usuarioService.delete(idUsuario);
 	}
 	
-	@DeleteMapping("/maquetas/{idMaqueta}")
+	@DeleteMapping("/maqueta/{idMaqueta}")
 	void deleteMaqueta(@PathVariable("idMaqueta") long idMaqueta) {
 		gunplaService.delete(idMaqueta);
 	}

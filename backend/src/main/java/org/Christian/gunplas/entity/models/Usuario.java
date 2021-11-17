@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "Usuario")
 public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -26,7 +26,7 @@ public class Usuario implements Serializable{
 	
 	private String correoElectronico;
 	
-	private boolean admin;
+	private int admin;
 
 	public long getIdUsuario() {
 		return idUsuario;
@@ -68,15 +68,15 @@ public class Usuario implements Serializable{
 		this.correoElectronico = correoElectronico;
 	}
 	
-	public boolean getAdmin() {
+	public int getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(boolean admin) {
+	public void setAdmin(int admin) {
 		this.admin = admin;
 	}
 
-	public Usuario(long idUsuario, String nombre, String apellidos, String contrasena, String correoElectronico, boolean admin) {
+	public Usuario(long idUsuario, String nombre, String apellidos, String contrasena, String correoElectronico, int admin) {
 		super();
 		this.idUsuario = idUsuario;
 		this.Nombre = nombre;

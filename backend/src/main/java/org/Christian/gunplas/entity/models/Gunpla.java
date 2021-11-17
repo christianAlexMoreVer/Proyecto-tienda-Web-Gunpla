@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "maquetas")
+@Table(name = "Maqueta")
 public class Gunpla implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -86,13 +86,14 @@ public class Gunpla implements Serializable {
 		this.img = img;
 	}
 
-	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion) {
+	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion, String img) {
 		super();
 		this.Nombre = nombre;
 		this.precio = precio;
 		this.Escala = escala;
 		this.TipoGrado = tipoGrado;
 		this.Descripcion = descripcion;
+		this.img = img;
 	}
 	
 	public Gunpla() {}
