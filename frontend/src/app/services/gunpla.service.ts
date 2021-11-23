@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class GunplaService {
 
-  endpoint: string = "http://localhost:8080/maquetas"
+  endpoint: string = "http://localhost:8080/maqueta"
 
   constructor(private httpClient: HttpClient) { }
 
