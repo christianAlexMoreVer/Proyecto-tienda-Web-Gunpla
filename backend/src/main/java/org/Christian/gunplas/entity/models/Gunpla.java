@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "Maqueta")
 public class Gunpla implements Serializable {
@@ -28,7 +29,7 @@ public class Gunpla implements Serializable {
 	
 	private String Descripcion;
 	
-	private String img;
+	private String imgFileName;
 
 	public long getIdMaqueta() {
 		return idMaqueta;
@@ -78,12 +79,12 @@ public class Gunpla implements Serializable {
 		Descripcion = descripcion;
 	}
 
-	public String getImg() {
-		return img;
+	public String getImgFileName() {
+		return imgFileName;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setImg(String imgFileName) {
+		this.imgFileName = imgFileName;
 	}
 
 	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion, String img) {
@@ -93,7 +94,16 @@ public class Gunpla implements Serializable {
 		this.Escala = escala;
 		this.TipoGrado = tipoGrado;
 		this.Descripcion = descripcion;
-		this.img = img;
+		this.imgFileName = img;
+	}
+	
+	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion) {
+		super();
+		this.Nombre = nombre;
+		this.precio = precio;
+		this.Escala = escala;
+		this.TipoGrado = tipoGrado;
+		this.Descripcion = descripcion;
 	}
 	
 	public Gunpla() {}

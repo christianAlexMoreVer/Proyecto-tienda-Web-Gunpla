@@ -7,6 +7,8 @@ public interface IGunplaService {
 	public List<Gunpla> getAll();
 	public Gunpla get(long id_Maqueta);
 	public void add(Gunpla gunpla);
+	public Gunpla addGunplaGraphQL(Gunpla gunpla);
 	public void delete(long id_Maqueta);
 	public void update(Gunpla gunpla, long id_Maqueta);
+	public Gunpla updateGunplaGraphQL(Gunpla gunpla, long id_Maqueta);
 }

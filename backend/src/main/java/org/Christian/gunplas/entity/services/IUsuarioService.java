@@ -7,6 +7,8 @@ public interface IUsuarioService{
 	public List<Usuario> getAll();
 	public Usuario get(long idUsuario);
 	public void add(Usuario usuario);
+	public Usuario addUsuarioGraphQL(Usuario usuario);
 	public void delete(long idUsuario);
 	public void update(Usuario usuario, long idUsuario);
+	public Usuario updateUsuarioGraphQL(Usuario usuario, long idUsuario);
 }

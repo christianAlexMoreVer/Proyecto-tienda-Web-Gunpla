@@ -28,6 +28,11 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		UsuarioDao.save(usuario);
 		
 	}
+	
+	@Override
+	public Usuario addUsuarioGraphQL(Usuario usuario) {
+		return UsuarioDao.save(usuario);
+	}
 
 	@Override
 	public void delete(long idUsuario) {
@@ -43,5 +48,15 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		});
 		
 	}
+
+	@Override
+	public Usuario updateUsuarioGraphQL(Usuario usuario, long idUsuario) {
+		UsuarioDao.findById(idUsuario).ifPresent((x)->{
+			usuario.setIdUsuario(idUsuario);
+		});
+		return UsuarioDao.save(usuario);
+	}
+
+	
 
 }

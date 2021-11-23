@@ -1,0 +1,46 @@
+type Gunpla {
+	idMaqueta: ID!
+	Nombre: String!
+	precio: Int!
+	Escala: String
+	TipoGrado: String
+	Descripcion: String
+}
+
+type Pedido{
+	idPedido: ID!
+	idUsuarioPedido: Int!
+	idMaqueta: Int!
+}
+
+type Usuario{
+	idUsuario: ID!
+	Nombre: String!
+	Apellidos: String!
+	Contrasena: String!
+	correoElectronico: String!
+	admin: Int!
+}
+
+type Query {
+	gunplas: [Gunpla],
+	gunpla(id: ID): Gunpla,
+	pedidos: [Pedido],
+	pedido(id: ID): Pedido,
+	usuarios: [Usuario],
+	usuario(id: ID): Usuario
+	
+}
+
+type Mutation {
+	createGunpla(Nombre: String, precio: Int, Escala: String, TipoGrado: String, Descripcion: String): Gunpla
+	createUsuario(Nombre: String, Apellidos: String, Contrasena: String, correoElectronico: String): Usuario
+	createPedido(idUsuarioPedido: Int, idMaqueta: Int): Pedido
+	updateGunpla(idMaqueta: ID, Nombre: String, precio: Int, Escala: String, TipoGrado: String, Descripcion: String): Gunpla
+	updateUsuario(idUsuario: ID, Nombre: String, Apellidos: String, Contrasena: String, correoElectronico: String): Usuario
+	updatePedido(idPedido: ID, idUsuarioPedido: Int, idMaqueta: Int): Pedido
+	deleteGunpla(idMaqueta: ID): String
+	deleteUsuario(idUsuario: ID): String
+	deletePedido(idPedido: ID): String
+	
+}

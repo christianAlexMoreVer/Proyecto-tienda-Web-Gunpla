@@ -27,6 +27,11 @@ public class GunplaServiceImpl implements IGunplaService {
 	public void add(Gunpla gunpla) {
 		GunplaDao.save(gunpla);
 	}
+	
+	@Override
+	public Gunpla addGunplaGraphQL(Gunpla gunpla) {
+		return GunplaDao.save(gunpla);
+	}
 
 	@Override
 	public void delete(long id_Maqueta) {
@@ -40,6 +45,17 @@ public class GunplaServiceImpl implements IGunplaService {
 			GunplaDao.save(gunpla);
 		});
 	}
+
+	@Override
+	public Gunpla updateGunplaGraphQL(Gunpla gunpla, long id_Maqueta) {
+		 GunplaDao.findById(id_Maqueta).ifPresent((x)->{
+			gunpla.setIdMaqueta(id_Maqueta);
+		});
+		return GunplaDao.save(gunpla);
+	}
+
+	
+	
 	
 
 

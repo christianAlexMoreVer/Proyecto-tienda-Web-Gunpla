@@ -9,11 +9,11 @@
 		<version>2.5.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>org.tiburcio</groupId>
-	<artifactId>superbikes</artifactId>
+	<groupId>org.Christian</groupId>
+	<artifactId>dbGunplas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>superbikes</name>
-	<description>CRUD with MySQL, JPA and Spring</description>
+	<description>CRUD with SQL SERVER, Graphql and Spring</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -34,11 +34,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -48,11 +43,31 @@
 			<artifactId>spring-security-crypto</artifactId>
 			<version>5.5.3</version>
 		</dependency>
+		  <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.5.3</version>
+        </dependency>
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>5.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>5.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <version>5.0.2</version>
+        </dependency>
 	</dependencies>
 
 	<build>

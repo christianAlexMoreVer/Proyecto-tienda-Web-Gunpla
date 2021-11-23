@@ -85,6 +85,14 @@ public class Usuario implements Serializable{
 		this.correoElectronico = correoElectronico;
 		this.admin = admin;
 	}
+	
+	public Usuario(String nombre, String apellidos, String contrasena, String correoElectronico) {
+		super();
+		this.Nombre = nombre;
+		this.Apellidos = apellidos;
+		this.Contrasena = contrasena;
+		this.correoElectronico = correoElectronico;
+	}
 
 	public Usuario() {}
 

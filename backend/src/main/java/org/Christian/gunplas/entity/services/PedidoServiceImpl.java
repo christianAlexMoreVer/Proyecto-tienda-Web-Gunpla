@@ -29,6 +29,11 @@ public class PedidoServiceImpl implements IPedidoService {
 	}
 
 	@Override
+	public Pedido addPedidoGraphQL(Pedido pedido) {
+		return PedidoDao.save(pedido);
+	}
+	
+	@Override
 	public void delete(long idPedido) {
 		PedidoDao.deleteById(idPedido);
 		
@@ -42,6 +47,16 @@ public class PedidoServiceImpl implements IPedidoService {
 		});
 		
 	}
+
+	@Override
+	public Pedido updatePedidoGraphQL(Pedido pedido, long idPedido) {
+		PedidoDao.findById(idPedido).ifPresent((x)->{
+			pedido.setIdPedido(idPedido);
+		});
+		return PedidoDao.save(pedido);
+	}
+
+	
 	
 	
 	

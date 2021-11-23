@@ -45,6 +45,12 @@ public class Pedido implements Serializable {
 		this.idUsuarioPedido = idUsuarioPedido;
 		this.idMaqueta = idMaqueta;
 	}
+	
+	public Pedido(long idUsuarioPedido, long idMaqueta) {
+		super();
+		this.idUsuarioPedido = idUsuarioPedido;
+		this.idMaqueta = idMaqueta;
+	}
 	public Pedido() {}
 	
 	

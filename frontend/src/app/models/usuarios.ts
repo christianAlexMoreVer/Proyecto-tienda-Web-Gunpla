@@ -4,5 +4,5 @@ export class Usuario{
     apellidos: string;
     contrasena: string;
     correoElectronico: string;
-    admin: boolean;
+    admin: number;
   }
