@@ -35,10 +35,11 @@ export class UsuarioService {
 
   createUsuario(usuario: Usuario): Observable<Usuario> {
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("nombre", usuario.nombre);
-    bodyEncoded.append("apellidos", usuario.apellidos);
-    bodyEncoded.append("contrasena", usuario.contrasena);
+    bodyEncoded.append("Nombre", usuario.Nombre);
+    bodyEncoded.append("Apellidos", usuario.Apellidos);
+    bodyEncoded.append("Contrasena", usuario.Contrasena);
     bodyEncoded.append("correoElectronico", usuario.correoElectronico);
+    bodyEncoded.append("admin","0");
     const body = bodyEncoded.toString();
     return this.httpClient.post<Usuario>(this.endpoint, body, httpOptions)
       .pipe(
@@ -56,11 +57,11 @@ export class UsuarioService {
 
   updateUsuario(idUsuario, usuario: Usuario): Observable<any> {
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("nombre", usuario.nombre);
-    bodyEncoded.append("apellidos", usuario.apellidos);
-    bodyEncoded.append("contrasena", usuario.contrasena);
+    bodyEncoded.append("Nombre", usuario.Nombre);
+    bodyEncoded.append("Apellidos", usuario.Apellidos);
+    bodyEncoded.append("Contrasena", usuario.Contrasena);
     bodyEncoded.append("correoElectronico", usuario.correoElectronico);
-    bodyEncoded.append("admin","false");
+    bodyEncoded.append("admin","0");
     const body = bodyEncoded.toString();
     return this.httpClient.put(this.endpoint + '/' + idUsuario, body, httpOptions)
       .pipe(

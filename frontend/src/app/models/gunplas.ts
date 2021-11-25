@@ -1,9 +1,9 @@
 export class Gunpla{
     idMaqueta: number;
-    nombre: string;
+    Nombre: string;
     precio: number;
-    escala: string;
-    tipoGrado: string;
-    descripcion: string;
-    img: string;
+    Escala: string;
+    TipoGrado: string;
+    Descripcion: string;
+    imgFileName: string;
   }

@@ -43,12 +43,12 @@ export class GunplaService {
 
   createGunpla(gunpla: Gunpla): Observable<Gunpla>{
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("nombre", gunpla.nombre);
+    bodyEncoded.append("Nombre", gunpla.Nombre);
     bodyEncoded.append("precio", gunpla.precio.toString());
-    bodyEncoded.append("escala", gunpla.escala);
-    bodyEncoded.append("tipoGrado", gunpla.tipoGrado);
-    bodyEncoded.append("descripcion", gunpla.descripcion);
-    bodyEncoded.append("img", gunpla.img);
+    bodyEncoded.append("Escala", gunpla.Escala);
+    bodyEncoded.append("TipoGrado", gunpla.TipoGrado);
+    bodyEncoded.append("Descripcion", gunpla.Descripcion);
+    bodyEncoded.append("imgFileName", gunpla.imgFileName);
     const body = bodyEncoded.toString();
     return this.httpClient.post<Gunpla>(this.endpoint, body, httpOptions)
     .pipe(
@@ -66,12 +66,12 @@ export class GunplaService {
 
   updateGunpla(idMaqueta, gunpla: Gunpla): Observable<any>{
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("nombre", gunpla.nombre);
+    bodyEncoded.append("Nombre", gunpla.Nombre);
     bodyEncoded.append("precio", gunpla.precio.toString());
-    bodyEncoded.append("escala", gunpla.escala);
-    bodyEncoded.append("tipoGrado", gunpla.tipoGrado);
-    bodyEncoded.append("descripcion", gunpla.descripcion);
-    bodyEncoded.append("img", gunpla.img);
+    bodyEncoded.append("Escala", gunpla.Escala);
+    bodyEncoded.append("TipoGrado", gunpla.TipoGrado);
+    bodyEncoded.append("Descripcion", gunpla.Descripcion);
+    bodyEncoded.append("imgFileName", gunpla.imgFileName);
     const body = bodyEncoded.toString();
     return this.httpClient.put(this.endpoint + '/' + idMaqueta, body, httpOptions)
     .pipe(
