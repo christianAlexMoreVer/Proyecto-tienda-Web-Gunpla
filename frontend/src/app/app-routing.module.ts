@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
   },
+  {
+    path: 'modal-registration-success',
+    loadChildren: () => import('./modal-registration-success/modal-registration-success.module').then( m => m.ModalRegistrationSuccessPageModule)
+  },
 ];
 
 @NgModule({

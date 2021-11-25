@@ -12,12 +12,8 @@ export class RegisterPage implements OnInit {
 
   usuarioForm: FormGroup;
 
-  constructor(
-    private router: Router,
-    public formBuilder: FormBuilder,
-    private zone: NgZone,
-    private usuarioService: UsuarioService 
-  ) {
+  constructor(private router: Router,public formBuilder: FormBuilder,private zone: NgZone,private usuarioService: UsuarioService ) 
+  {
     this.usuarioForm = this.formBuilder.group({
       nombre:['',Validators.required],
       apellidos:['',Validators.required],
