@@ -19,15 +19,15 @@ public class Gunpla implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idMaqueta;
 	
-	private String Nombre;
+	private String nombre;
 	
 	private int precio;
 	
-	private String Escala;
+	private String escala;
 	
-	private String TipoGrado;
+	private String tipoGrado;
 	
-	private String Descripcion;
+	private String descripcion;
 	
 	private String imgFileName;
 
@@ -40,11 +40,11 @@ public class Gunpla implements Serializable {
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 
 	public int getPrecio() {
@@ -56,27 +56,27 @@ public class Gunpla implements Serializable {
 	}
 
 	public String getEscala() {
-		return Escala;
+		return escala;
 	}
 
 	public void setEscala(String escala) {
-		Escala = escala;
+		this.escala = escala;
 	}
 
 	public String getTipoGrado() {
-		return TipoGrado;
+		return tipoGrado;
 	}
 
 	public void setTipoGrado(String tipoGrado) {
-		TipoGrado = tipoGrado;
+		this.tipoGrado = tipoGrado;
 	}
 	
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 	
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 
 	public String getImgFileName() {
@@ -89,21 +89,21 @@ public class Gunpla implements Serializable {
 
 	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion, String img) {
 		super();
-		this.Nombre = nombre;
+		this.nombre = nombre;
 		this.precio = precio;
-		this.Escala = escala;
-		this.TipoGrado = tipoGrado;
-		this.Descripcion = descripcion;
+		this.escala = escala;
+		this.tipoGrado = tipoGrado;
+		this.descripcion = descripcion;
 		this.imgFileName = img;
 	}
 	
 	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion) {
 		super();
-		this.Nombre = nombre;
+		this.nombre = nombre;
 		this.precio = precio;
-		this.Escala = escala;
-		this.TipoGrado = tipoGrado;
-		this.Descripcion = descripcion;
+		this.escala = escala;
+		this.tipoGrado = tipoGrado;
+		this.descripcion = descripcion;
 	}
 	
 	public Gunpla() {}

@@ -35,9 +35,9 @@ export class UsuarioService {
 
   createUsuario(usuario: Usuario): Observable<Usuario> {
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("Nombre", usuario.Nombre);
-    bodyEncoded.append("Apellidos", usuario.Apellidos);
-    bodyEncoded.append("Contrasena", usuario.Contrasena);
+    bodyEncoded.append("nombre", usuario.nombre);
+    bodyEncoded.append("apellidos", usuario.apellidos);
+    bodyEncoded.append("contrasena", usuario.contrasena);
     bodyEncoded.append("correoElectronico", usuario.correoElectronico);
     bodyEncoded.append("admin","0");
     const body = bodyEncoded.toString();
@@ -57,9 +57,9 @@ export class UsuarioService {
 
   updateUsuario(idUsuario, usuario: Usuario): Observable<any> {
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("Nombre", usuario.Nombre);
-    bodyEncoded.append("Apellidos", usuario.Apellidos);
-    bodyEncoded.append("Contrasena", usuario.Contrasena);
+    bodyEncoded.append("nombre", usuario.nombre);
+    bodyEncoded.append("apellidos", usuario.apellidos);
+    bodyEncoded.append("contrasena", usuario.contrasena);
     bodyEncoded.append("correoElectronico", usuario.correoElectronico);
     bodyEncoded.append("admin","0");
     const body = bodyEncoded.toString();

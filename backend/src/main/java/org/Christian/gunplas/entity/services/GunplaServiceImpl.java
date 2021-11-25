@@ -1,6 +1,7 @@
 package org.Christian.gunplas.entity.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.Christian.gunplas.entity.models.Gunpla;
 import org.Christian.gunplas.entity.dao.IGunplaDao;
@@ -52,6 +53,11 @@ public class GunplaServiceImpl implements IGunplaService {
 			gunpla.setIdMaqueta(id_Maqueta);
 		});
 		return GunplaDao.save(gunpla);
+	}
+
+	@Override
+	public List<Gunpla> findUserBynombreContaining(String Nombre) {
+		return GunplaDao.findUserBynombreContaining(Nombre);
 	}
 
 	

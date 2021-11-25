@@ -1,10 +1,10 @@
 type Gunpla {
 	idMaqueta: ID!
-	Nombre: String!
+	nombre: String!
 	precio: Int!
-	Escala: String
-	TipoGrado: String
-	Descripcion: String
+	escala: String
+	tipoGrado: String
+	descripcion: String
 }
 
 type Pedido{
@@ -15,9 +15,9 @@ type Pedido{
 
 type Usuario{
 	idUsuario: ID!
-	Nombre: String!
-	Apellidos: String!
-	Contrasena: String!
+	nombre: String!
+	apellidos: String!
+	contrasena: String!
 	correoElectronico: String!
 	admin: Int!
 }
@@ -33,11 +33,11 @@ type Query {
 }
 
 type Mutation {
-	createGunpla(Nombre: String, precio: Int, Escala: String, TipoGrado: String, Descripcion: String): Gunpla
-	createUsuario(Nombre: String, Apellidos: String, Contrasena: String, correoElectronico: String): Usuario
+	createGunpla(nombre: String, precio: Int, escala: String, tipoGrado: String, descripcion: String): Gunpla
+	createUsuario(nombre: String, apellidos: String, contrasena: String, correoElectronico: String): Usuario
 	createPedido(idUsuarioPedido: Int, idMaqueta: Int): Pedido
-	updateGunpla(idMaqueta: ID, Nombre: String, precio: Int, Escala: String, TipoGrado: String, Descripcion: String): Gunpla
-	updateUsuario(idUsuario: ID, Nombre: String, Apellidos: String, Contrasena: String, correoElectronico: String): Usuario
+	updateGunpla(idMaqueta: ID, nombre: String, precio: Int, escala: String, tipoGrado: String, descripcion: String): Gunpla
+	updateUsuario(idUsuario: ID, nombre: String, apellidos: String, contrasena: String, correoElectronico: String): Usuario
 	updatePedido(idPedido: ID, idUsuarioPedido: Int, idMaqueta: Int): Pedido
 	deleteGunpla(idMaqueta: ID): String
 	deleteUsuario(idUsuario: ID): String

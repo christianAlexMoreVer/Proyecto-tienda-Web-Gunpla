@@ -33,21 +33,21 @@ export class GunplaService {
     );;
   }
 
-  getGunplaByName(nombre: string): Observable<Gunpla>{
-    return this.httpClient.get<Gunpla>(this.endpoint + "/" + nombre)
+  getGunplaByName(nombre: string): Observable<Gunpla[]>{
+    return this.httpClient.get<Gunpla[]>(this.endpoint + "/nombre/" + nombre)
     .pipe(
       tap(_ => console.log(`Gunpla fetched: ${nombre}`)),
-      catchError(this.handleError<Gunpla>(`Get gunpla nombre=${nombre}`))
+      catchError(this.handleError<Gunpla[]>(`Get gunpla nombre=${nombre}`))
     );;
   }
 
   createGunpla(gunpla: Gunpla): Observable<Gunpla>{
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("Nombre", gunpla.Nombre);
+    bodyEncoded.append("nombre", gunpla.nombre);
     bodyEncoded.append("precio", gunpla.precio.toString());
-    bodyEncoded.append("Escala", gunpla.Escala);
-    bodyEncoded.append("TipoGrado", gunpla.TipoGrado);
-    bodyEncoded.append("Descripcion", gunpla.Descripcion);
+    bodyEncoded.append("escala", gunpla.escala);
+    bodyEncoded.append("tipoGrado", gunpla.tipoGrado);
+    bodyEncoded.append("descripcion", gunpla.descripcion);
     bodyEncoded.append("imgFileName", gunpla.imgFileName);
     const body = bodyEncoded.toString();
     return this.httpClient.post<Gunpla>(this.endpoint, body, httpOptions)
@@ -66,11 +66,11 @@ export class GunplaService {
 
   updateGunpla(idMaqueta, gunpla: Gunpla): Observable<any>{
     let bodyEncoded = new URLSearchParams();
-    bodyEncoded.append("Nombre", gunpla.Nombre);
+    bodyEncoded.append("nombre", gunpla.nombre);
     bodyEncoded.append("precio", gunpla.precio.toString());
-    bodyEncoded.append("Escala", gunpla.Escala);
-    bodyEncoded.append("TipoGrado", gunpla.TipoGrado);
-    bodyEncoded.append("Descripcion", gunpla.Descripcion);
+    bodyEncoded.append("escala", gunpla.escala);
+    bodyEncoded.append("tipoGrado", gunpla.tipoGrado);
+    bodyEncoded.append("descripcion", gunpla.descripcion);
     bodyEncoded.append("imgFileName", gunpla.imgFileName);
     const body = bodyEncoded.toString();
     return this.httpClient.put(this.endpoint + '/' + idMaqueta, body, httpOptions)

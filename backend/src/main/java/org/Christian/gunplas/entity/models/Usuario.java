@@ -18,11 +18,11 @@ public class Usuario implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idUsuario;
 	
-	private String Nombre;
+	private String nombre;
 	
-	private String Apellidos;
+	private String apellidos;
 	
-	private String Contrasena;
+	private String contrasena;
 	
 	private String correoElectronico;
 	
@@ -37,27 +37,27 @@ public class Usuario implements Serializable{
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 
 	public String getApellidos() {
-		return Apellidos;
+		return apellidos;
 	}
 
 	public void setApellidos(String apellidos) {
-		Apellidos = apellidos;
+		this.apellidos = apellidos;
 	}
 
 	public String getContrasena() {
-		return Contrasena;
+		return contrasena;
 	}
 
 	public void setContrasena(String contrasena) {
-		Contrasena = contrasena;
+		this.contrasena = contrasena;
 	}
 
 	public String getCorreoElectronico() {
@@ -79,18 +79,18 @@ public class Usuario implements Serializable{
 	public Usuario(long idUsuario, String nombre, String apellidos, String contrasena, String correoElectronico, int admin) {
 		super();
 		this.idUsuario = idUsuario;
-		this.Nombre = nombre;
-		this.Apellidos = apellidos;
-		this.Contrasena = contrasena;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.contrasena = contrasena;
 		this.correoElectronico = correoElectronico;
 		this.admin = admin;
 	}
 	
 	public Usuario(String nombre, String apellidos, String contrasena, String correoElectronico) {
 		super();
-		this.Nombre = nombre;
-		this.Apellidos = apellidos;
-		this.Contrasena = contrasena;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.contrasena = contrasena;
 		this.correoElectronico = correoElectronico;
 	}
 
