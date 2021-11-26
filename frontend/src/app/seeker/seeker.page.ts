@@ -16,23 +16,41 @@ export class SeekerPage implements OnInit {
 
   ngOnInit() {
 
-    if(localStorage.getItem("UsuarioLoggedId")){
-      this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
+    if (localStorage.getItem("UsuarioLoggedId")) {
+      this.UsuarioLoggedId = + localStorage.getItem('UsuarioLoggedId');
     }
   }
 
-  displayGunplasByName(ev: any){
+  displayGunplasByName(ev: any) {
 
     let val = ev.target.value;
 
-    if(val && val.trim() != ''){
-      
+    if (val && val.trim() != '') {
+      fetch('http://localhost:8080/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
+              query{
+               gunplaByName(nombre: \"`+val+`\"){
+                nombre
+                descripcion
+          }
+        }`
+        })
+      })
+        .then(res => res.json())
+        .then(GUNPLAS => {
+          this.gunplasByName = GUNPLAS.data.gunplaByName
+          document.getElementById("results").style.display ="flex"
+        });
+        
     }
-    
-    else{
-      document.getElementById("results").style.display="none";
+
+    else {
+      document.getElementById("results").style.display = "none";
     }
-    
+
   }
 
 }

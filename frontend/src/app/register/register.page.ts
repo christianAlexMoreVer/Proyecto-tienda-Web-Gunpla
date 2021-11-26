@@ -1,7 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +11,7 @@ export class RegisterPage implements OnInit {
 
   usuarioForm: FormGroup;
 
-  constructor(private router: Router,public formBuilder: FormBuilder,private zone: NgZone,private usuarioService: UsuarioService ) 
+  constructor(private router: Router,public formBuilder: FormBuilder,private zone: NgZone) 
   {
     this.usuarioForm = this.formBuilder.group({
       nombre:['',Validators.required],
@@ -29,12 +28,7 @@ export class RegisterPage implements OnInit {
     if (!this.usuarioForm.valid){
       return false;
     } else {
-      this.usuarioService.createUsuario(this.usuarioForm.value).subscribe((response) => {
-        this.zone.run(() => {
-          this.usuarioForm.reset();
-          this.router.navigateByUrl('/home')
-        })
-      });
+      
     }
   }
 }
