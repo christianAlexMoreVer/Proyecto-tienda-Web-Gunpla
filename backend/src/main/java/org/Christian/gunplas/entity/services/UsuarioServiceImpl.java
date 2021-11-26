@@ -57,6 +57,11 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		return UsuarioDao.save(usuario);
 	}
 
+	@Override
+	public boolean findBycorreoElectronico(String correo) {
+			return UsuarioDao.findBycorreoElectronico(correo).isPresent();
+	}
+
 	
 
 }

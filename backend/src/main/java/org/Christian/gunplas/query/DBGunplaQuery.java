@@ -27,9 +27,14 @@ public class DBGunplaQuery implements GraphQLQueryResolver {
 		return gunplaService.getAll();
 	}
 	
+	public List<Gunpla> getGunplaByName(String nombre){
+		return gunplaService.findUserBynombreContaining(nombre);
+	}
+	
 	public Gunpla getGunpla(long id){
 		return gunplaService.get(id);
 	}
+	
 	
 	public List<Usuario> getUsuarios(){
 		return usuarioService.getAll();
@@ -37,6 +42,10 @@ public class DBGunplaQuery implements GraphQLQueryResolver {
 	
 	public Usuario getUsuario(long id){
 		return usuarioService.get(id);
+	}
+	
+	public Boolean getUsuarioExist(String correo) {
+		return usuarioService.findBycorreoElectronico(correo);
 	}
 	
 	public List<Pedido> getPedidos(){

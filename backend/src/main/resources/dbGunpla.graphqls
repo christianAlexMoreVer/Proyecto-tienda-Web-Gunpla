@@ -25,11 +25,12 @@ type Usuario{
 type Query {
 	gunplas: [Gunpla],
 	gunpla(id: ID): Gunpla,
+	gunplaByName(nombre: String): [Gunpla],
 	pedidos: [Pedido],
 	pedido(id: ID): Pedido,
 	usuarios: [Usuario],
-	usuario(id: ID): Usuario
-	
+	usuario(id: ID): Usuario,
+	usuarioExist(correoElectronico: String): Boolean
 }
 
 type Mutation {
@@ -42,5 +43,4 @@ type Mutation {
 	deleteGunpla(idMaqueta: ID): String
 	deleteUsuario(idUsuario: ID): String
 	deletePedido(idPedido: ID): String
-	
 }
