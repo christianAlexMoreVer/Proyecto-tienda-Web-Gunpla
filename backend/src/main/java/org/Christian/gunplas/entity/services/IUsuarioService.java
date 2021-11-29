@@ -13,4 +13,5 @@ public interface IUsuarioService{
 	public void update(Usuario usuario, long idUsuario);
 	public Usuario updateUsuarioGraphQL(Usuario usuario, long idUsuario);
 	public boolean findBycorreoElectronico(String correo);
+	public Usuario getUsuarioByCorreo(String correo);
 }

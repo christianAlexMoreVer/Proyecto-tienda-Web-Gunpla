@@ -44,6 +44,10 @@ public class DBGunplaQuery implements GraphQLQueryResolver {
 		return usuarioService.get(id);
 	}
 	
+	public Usuario getUsuarioGetCorreo(String correo) {
+		return usuarioService.getUsuarioByCorreo(correo);
+	}
+	
 	public Boolean getUsuarioExist(String correo) {
 		return usuarioService.findBycorreoElectronico(correo);
 	}

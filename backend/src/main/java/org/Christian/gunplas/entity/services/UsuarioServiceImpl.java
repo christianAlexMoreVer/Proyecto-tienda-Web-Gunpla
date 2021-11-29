@@ -24,6 +24,11 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	}
 	
 	@Override
+	public Usuario getUsuarioByCorreo(String correo) {
+		return UsuarioDao.findBycorreoElectronico(correo).get();
+	}
+	
+	@Override
 	public void add(Usuario usuario) {
 		UsuarioDao.save(usuario);
 		
@@ -62,6 +67,7 @@ public class UsuarioServiceImpl implements IUsuarioService{
 			return UsuarioDao.findBycorreoElectronico(correo).isPresent();
 	}
 
+	
 	
 
 }

@@ -10,14 +10,12 @@ import { Gunpla } from '../models/gunplas';
 })
 export class HomePage implements OnInit{
 
-  public gunplas: Array<Gunpla> = [];
-
   constructor(private router: Router) {}
   
 
   ngOnInit(): void {
-    
+
   }
 
-
+  
 }

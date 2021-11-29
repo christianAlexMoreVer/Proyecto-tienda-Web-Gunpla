@@ -9,9 +9,18 @@ import { MenuController } from '@ionic/angular';
 })
 export class HeaderComponent implements OnInit {
 
+  private UsuarioLoggedId: number;
+
   constructor(private menuCtrl: MenuController) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    if(localStorage.getItem("UsuarioLoggedId")){
+      this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
+    }
+    
+    localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
+  } 
 
   toggleMenu(){
     this.menuCtrl.toggle();

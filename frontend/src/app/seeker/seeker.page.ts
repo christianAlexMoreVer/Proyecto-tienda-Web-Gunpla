@@ -16,10 +16,12 @@ export class SeekerPage implements OnInit {
 
   ngOnInit() {
 
-    if (localStorage.getItem("UsuarioLoggedId")) {
-      this.UsuarioLoggedId = + localStorage.getItem('UsuarioLoggedId');
+    if(localStorage.getItem("UsuarioLoggedId")){
+      this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
     }
-  }
+    
+    localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
+  } 
 
   displayGunplasByName(ev: any) {
 

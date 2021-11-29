@@ -31,7 +31,9 @@ type Query {
 	pedido(id: ID): Pedido,
 	usuarios: [Usuario],
 	usuario(id: ID): Usuario,
+	usuarioGetCorreo(correoElectronico: String): Usuario
 	usuarioExist(correoElectronico: String): Boolean
+	
 }
 
 type Mutation {

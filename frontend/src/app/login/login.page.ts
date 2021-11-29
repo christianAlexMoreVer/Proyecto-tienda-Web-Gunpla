@@ -17,7 +17,26 @@ export class LoginPage implements OnInit {
       this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
     }
     
-    // localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
+    localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
   } 
+
+  InicioSesion(correoElectronico: String){
+    fetch('http://localhost:8080/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
+          query{
+            usuarioGetCorreo(correoElectronico: \"`+correoElectronico+`\"){
+              idUsuario
+            }
+          }`
+        })
+      })
+      .then(res => res.json())
+      .then(ID => {
+        this.UsuarioLoggedId = ID.data.usuarioGetCorreo.idUsuario
+    });
+  }
   
 }
