@@ -5,6 +5,7 @@ type Gunpla {
 	escala: String
 	tipoGrado: String
 	descripcion: String
+	imgFileName: String
 }
 
 type Pedido{

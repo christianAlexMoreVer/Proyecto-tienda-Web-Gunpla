@@ -35,6 +35,7 @@ export class SeekerPage implements OnInit {
                gunplaByName(nombre: \"`+val+`\"){
                 nombre
                 descripcion
+                imgFileName
           }
         }`
         })
