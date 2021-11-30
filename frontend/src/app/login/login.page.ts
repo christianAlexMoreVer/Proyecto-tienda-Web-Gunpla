@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class LoginPage implements OnInit {
 
   private UsuarioLoggedId: number;
+  private correo: any;
+  private contrasena: any;
 
   constructor() { }
 
@@ -20,14 +22,14 @@ export class LoginPage implements OnInit {
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
   } 
 
-  InicioSesion(correoElectronico: String){
+  Login(correoElectronico: String, contrasena: String){
     fetch('http://localhost:8080/graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           query: `
           query{
-            usuarioGetCorreo(correoElectronico: \"`+correoElectronico+`\"){
+            usuarioLogged(correoElectronico:\"`+correoElectronico+`\",contrasena:\"`+contrasena+`\"){
               idUsuario
             }
           }`
@@ -35,7 +37,8 @@ export class LoginPage implements OnInit {
       })
       .then(res => res.json())
       .then(ID => {
-        this.UsuarioLoggedId = ID.data.usuarioGetCorreo.idUsuario
+        this.UsuarioLoggedId = ID.data.usuarioGetCorreo
+        console.log(this.UsuarioLoggedId)
     });
   }
   

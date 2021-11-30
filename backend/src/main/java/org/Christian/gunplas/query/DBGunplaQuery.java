@@ -52,6 +52,10 @@ public class DBGunplaQuery implements GraphQLQueryResolver {
 		return usuarioService.findBycorreoElectronico(correo);
 	}
 	
+	public Usuario getUsuarioLogged(String correo, String contrasena) {
+		return usuarioService.usuarioLogged(correo, contrasena);
+	}
+	
 	public List<Pedido> getPedidos(){
 		return pedidoService.getAll();
 	}

@@ -27,6 +27,8 @@ public class Gunpla implements Serializable {
 	
 	private String tipoGrado;
 	
+	private String breveIntro;
+	
 	private String descripcion;
 	
 	private String imgFileName;
@@ -87,26 +89,36 @@ public class Gunpla implements Serializable {
 		this.imgFileName = imgFileName;
 	}
 
-	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion, String img) {
+	public Gunpla(String nombre, int precio, String escala, String tipoGrado,String breveIntro ,String descripcion, String img) {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
 		this.escala = escala;
 		this.tipoGrado = tipoGrado;
+		this.breveIntro = breveIntro;
 		this.descripcion = descripcion;
 		this.imgFileName = img;
 	}
 	
-	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String descripcion) {
+	public Gunpla(String nombre, int precio, String escala, String tipoGrado, String breveIntro, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
 		this.escala = escala;
 		this.tipoGrado = tipoGrado;
+		this.breveIntro = breveIntro;
 		this.descripcion = descripcion;
 	}
 	
 	public Gunpla() {}
+
+	public String getBreveIntro() {
+		return breveIntro;
+	}
+
+	public void setBreveIntro(String breveIntro) {
+		this.breveIntro = breveIntro;
+	}
 
 	
 

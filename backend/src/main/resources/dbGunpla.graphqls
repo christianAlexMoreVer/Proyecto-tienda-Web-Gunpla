@@ -4,6 +4,7 @@ type Gunpla {
 	precio: Int!
 	escala: String
 	tipoGrado: String
+	breveIntro: String
 	descripcion: String
 	imgFileName: String
 }
@@ -33,14 +34,14 @@ type Query {
 	usuario(id: ID): Usuario,
 	usuarioGetCorreo(correoElectronico: String): Usuario
 	usuarioExist(correoElectronico: String): Boolean
-	
+	usuarioLogged(correoElectronico: String, contrasena: String): Usuario
 }
 
 type Mutation {
-	createGunpla(nombre: String, precio: Int, escala: String, tipoGrado: String, descripcion: String): Gunpla
+	createGunpla(nombre: String, precio: Int, escala: String, tipoGrado: String, breveIntro: String, descripcion: String): Gunpla
 	createUsuario(nombre: String, apellidos: String, contrasena: String, correoElectronico: String): Usuario
 	createPedido(idUsuarioPedido: Int, idMaqueta: Int): Pedido
-	updateGunpla(idMaqueta: ID, nombre: String, precio: Int, escala: String, tipoGrado: String, descripcion: String): Gunpla
+	updateGunpla(idMaqueta: ID, nombre: String, precio: Int, escala: String, tipoGrado: String, breveIntro: String, descripcion: String): Gunpla
 	updateUsuario(idUsuario: ID, nombre: String, apellidos: String, contrasena: String, correoElectronico: String): Usuario
 	updatePedido(idPedido: ID, idUsuarioPedido: Int, idMaqueta: Int): Pedido
 	deleteGunpla(idMaqueta: ID): String

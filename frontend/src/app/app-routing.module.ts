@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'modal-registration-success',
     loadChildren: () => import('./modal-registration-success/modal-registration-success.module').then( m => m.ModalRegistrationSuccessPageModule)
+  },  {
+    path: 'modal-gunpla-view',
+    loadChildren: () => import('./modal-gunpla-view/modal-gunpla-view.module').then( m => m.ModalGunplaViewPageModule)
   },
+
 ];
 
 @NgModule({

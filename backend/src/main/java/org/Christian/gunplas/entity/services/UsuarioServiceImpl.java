@@ -12,6 +12,8 @@ public class UsuarioServiceImpl implements IUsuarioService{
 
 	@Autowired
 	private IUsuarioDao UsuarioDao;
+	@Autowired
+	private IEncryptService EncryptService;
 
 	@Override
 	public List<Usuario> getAll() {
@@ -67,7 +69,16 @@ public class UsuarioServiceImpl implements IUsuarioService{
 			return UsuarioDao.findBycorreoElectronico(correo).isPresent();
 	}
 
-	
+	@Override
+	public Usuario usuarioLogged(String correo, String contrasena) {
+		Usuario usuario = UsuarioDao.findBycorreoElectronico(correo).get();
+		if(EncryptService.verifyPassword(contrasena, usuario.getContrasena())) {
+			return usuario;
+		}
+		else {
+			return null;
+		}
+	}
 	
 
 }

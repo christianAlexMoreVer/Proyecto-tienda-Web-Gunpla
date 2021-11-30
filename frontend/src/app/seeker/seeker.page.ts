@@ -23,6 +23,10 @@ export class SeekerPage implements OnInit {
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
   } 
 
+  DisplayGunplaView(){
+    console.log("entrando")
+  }
+
   displayGunplasByName(ev: any) {
 
     let val = ev.target.value;
@@ -36,7 +40,7 @@ export class SeekerPage implements OnInit {
               query{
                gunplaByName(nombre: \"`+val+`\"){
                 nombre
-                descripcion
+                breveIntro
                 imgFileName
           }
         }`

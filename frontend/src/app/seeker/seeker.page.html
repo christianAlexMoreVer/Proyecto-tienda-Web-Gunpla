@@ -10,12 +10,17 @@
 
   <div class="container-results" id="results">
     <div class="box" *ngFor="let g of gunplasByName">
-      <h5>{{g.nombre}}</h5>
-      <a>{{g.descripcion}}</a>
+      <div class="card" (click)=DisplayGunplaView()>
+        <img class="card-img-top" src="http://localhost:8080/img/maquetas/{{g.imgFileName}}">
+        <div class="card-body">
+          <h4 class="card-title">{{g.nombre}}</h4>
+          <p class="card-text">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        </div>
+      </div>
     </div>
   </div>
 
   <div style="margin-top: 340px;">
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
   </div>
 </ion-content>
