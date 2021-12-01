@@ -1,0 +1,15 @@
+ion-content.background{
+    --background: url(../../assets/img/registrationSuccess.jpg) 0 0/100% 100% no-repeat;
+  }
+
+.container{
+    text-align: center;
+    background-color:#CFDFEB;
+    border-radius:13px;
+    border:1px solid black;
+    font-family:'Roboto', sans-serif;
+    font-size:15px;
+    opacity: 95%;
+    margin-top: 100px;
+    width: 300px;
+}

@@ -19,8 +19,10 @@ export class SeekerPage implements OnInit {
     if(localStorage.getItem("UsuarioLoggedId")){
       this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
     }
-    
+
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
+
+    console.log(this.UsuarioLoggedId)
   } 
 
   DisplayGunplaView(){

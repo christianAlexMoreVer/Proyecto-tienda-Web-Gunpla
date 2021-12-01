@@ -10,11 +10,19 @@ import { Gunpla } from '../models/gunplas';
 })
 export class HomePage implements OnInit{
 
+  private UsuarioLoggedId: number;
+  
   constructor(private router: Router) {}
   
 
-  ngOnInit(): void {
+  ngOnInit() {
+    if(localStorage.getItem("UsuarioLoggedId")){
+      this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
+    }
+    
+    localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
 
+    console.log(this.UsuarioLoggedId)
   }
 
   

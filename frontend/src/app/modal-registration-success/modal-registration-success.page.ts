@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,14 +9,27 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalRegistrationSuccessPage implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  private UsuarioLoggedId: number;
+  constructor(private modalController: ModalController, private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem("UsuarioLoggedId")) {
+      this.UsuarioLoggedId = + localStorage.getItem('UsuarioLoggedId');
+    }
+
+    localStorage.setItem('UsuarioLoggedId', `${this.UsuarioLoggedId}`);
+
+    console.log(this.UsuarioLoggedId)
   }
 
   async closeModel() {
     const close: string = "Modal Removed";
     await this.modalController.dismiss(close);
+  }
+
+  goToLoggin() {
+    this.router.navigateByUrl("/login")
+    this.modalController.dismiss(close);
   }
 
 }

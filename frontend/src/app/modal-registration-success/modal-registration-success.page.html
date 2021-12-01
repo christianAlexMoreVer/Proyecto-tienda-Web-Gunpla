@@ -1,9 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>modal-registration-success</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
 </ion-header>
 
-<ion-content>
-
+<ion-content [fullscreen]="true" class="background">
+  <div class="container">
+    <h3>!! FELICIDADES TE HAS REGISTRADO CON EXITO ¡¡</h3>
+    <ion-button (click)="goToLoggin()">Ir a Iniciar Sesíon</ion-button>
+  </div>
 </ion-content>

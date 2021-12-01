@@ -1,3 +1,7 @@
+ion-content.background{
+  --background: url(../../assets/img/fondo.jpg) 0 0/100% 100% no-repeat;
+}
+
 .container{
   text-align: justify;
   background-color:#CFDFEB;
@@ -26,6 +30,3 @@
   text-decoration: none;
 }
 
-ion-content.background{
-  --background: url(../../assets/img/fondo.jpg) 0 0/100% 100% no-repeat;
-}

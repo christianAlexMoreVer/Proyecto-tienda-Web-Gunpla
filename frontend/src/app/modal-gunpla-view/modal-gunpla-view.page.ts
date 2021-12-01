@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-gunpla-view.page.scss'],
 })
 export class ModalGunplaViewPage implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
