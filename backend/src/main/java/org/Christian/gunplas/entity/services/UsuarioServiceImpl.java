@@ -63,6 +63,13 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		});
 		return UsuarioDao.save(usuario);
 	}
+	
+	@Override
+	public Usuario updateUsuarioImgUser(String imgUser, long idUsuario) {
+		Usuario userUpdate = UsuarioDao.findById(idUsuario).get();
+		userUpdate.setImgUser(imgUser);
+		return UsuarioDao.save(userUpdate);
+	}
 
 	@Override
 	public boolean findBycorreoElectronico(String correo) {

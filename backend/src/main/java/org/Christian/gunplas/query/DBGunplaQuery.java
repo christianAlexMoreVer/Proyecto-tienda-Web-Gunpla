@@ -63,4 +63,8 @@ public class DBGunplaQuery implements GraphQLQueryResolver {
 	public Pedido getPedido(long id){
 		return pedidoService.get(id);
 	}
+	
+	public List<Pedido> getPedidosUser(long id){
+		return pedidoService.getPedidoidUsuarioPedido(id);
+	}
 }

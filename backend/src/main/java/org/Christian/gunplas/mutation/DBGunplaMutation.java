@@ -28,8 +28,8 @@ public class DBGunplaMutation implements GraphQLMutationResolver {
 		return gunplaService.addGunplaGraphQL(gunpla);
 	}
 	
-	public Usuario createUsuario(String nombre, String apellidos, String contrasena, String correoElectronico) {
-		Usuario usuario = new Usuario (nombre, apellidos, contrasena, correoElectronico);
+	public Usuario createUsuario(String nombre, String apellidos, String contrasena, String correoElectronico, String imgUser) {
+		Usuario usuario = new Usuario (nombre, apellidos, contrasena, correoElectronico, imgUser);
 		String hashPass = encryptService.encryptPassword(usuario.getContrasena());
 		usuario.setContrasena(hashPass);
 		return usuarioService.addUsuarioGraphQL(usuario);
@@ -50,6 +50,10 @@ public class DBGunplaMutation implements GraphQLMutationResolver {
 		String hashPass = encryptService.encryptPassword(usuario.getContrasena());
 		usuario.setContrasena(hashPass);
 		return usuarioService.updateUsuarioGraphQL(usuario, idUsuario);
+	}
+	
+	public Usuario updateUsuarioImgUser(long idUsuario, String imgUser) {
+		return usuarioService.updateUsuarioImgUser(imgUser, idUsuario);
 	}
 	
 	public Pedido updatePedido(long idPedido,long idUsuarioPedido, long idMaqueta) {

@@ -56,6 +56,11 @@ public class PedidoServiceImpl implements IPedidoService {
 		return PedidoDao.save(pedido);
 	}
 
+	@Override
+	public List<Pedido> getPedidoidUsuarioPedido(long idUsuarioPedido) {
+		return (List<Pedido>) PedidoDao.findByidUsuarioPedido(idUsuarioPedido);
+	}
+
 	
 	
 	

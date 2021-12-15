@@ -26,6 +26,8 @@ public class Usuario implements Serializable{
 	
 	private String correoElectronico;
 	
+	private String imgUser;
+	
 	private int admin;
 
 	public long getIdUsuario() {
@@ -75,15 +77,34 @@ public class Usuario implements Serializable{
 	public void setAdmin(int admin) {
 		this.admin = admin;
 	}
+	
+	public String getImgUser() {
+		return imgUser;
+	}
 
-	public Usuario(long idUsuario, String nombre, String apellidos, String contrasena, String correoElectronico, int admin) {
+	public void setImgUser(String imgUser) {
+		this.imgUser = imgUser;
+	}
+
+
+	public Usuario(long idUsuario, String nombre, String apellidos, String contrasena, String correoElectronico, String imgUser, int admin) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.contrasena = contrasena;
 		this.correoElectronico = correoElectronico;
+		this.imgUser = imgUser;
 		this.admin = admin;
+	}
+	
+	public Usuario(String nombre, String apellidos, String contrasena, String correoElectronico, String imgUser) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.contrasena = contrasena;
+		this.correoElectronico = correoElectronico;
+		this.imgUser = imgUser;
 	}
 	
 	public Usuario(String nombre, String apellidos, String contrasena, String correoElectronico) {
@@ -96,4 +117,5 @@ public class Usuario implements Serializable{
 
 	public Usuario() {}
 
+	
 }

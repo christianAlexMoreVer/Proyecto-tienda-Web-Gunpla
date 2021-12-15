@@ -12,6 +12,7 @@ public interface IUsuarioService{
 	public void delete(long idUsuario);
 	public void update(Usuario usuario, long idUsuario);
 	public Usuario updateUsuarioGraphQL(Usuario usuario, long idUsuario);
+	public Usuario updateUsuarioImgUser(String imgUser, long idUsuario);
 	public boolean findBycorreoElectronico(String correo);
 	public Usuario getUsuarioByCorreo(String correo);
 	public Usuario usuarioLogged(String correo, String contrasena);

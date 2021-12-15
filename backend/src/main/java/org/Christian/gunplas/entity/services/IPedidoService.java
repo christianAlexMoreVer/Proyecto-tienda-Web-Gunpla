@@ -11,4 +11,5 @@ public interface IPedidoService {
 	public void delete(long idPedido);
 	public void update(Pedido pedido, long idPedido);
 	public Pedido updatePedidoGraphQL(Pedido pedido, long idPedido);
+	public List<Pedido> getPedidoidUsuarioPedido(long idUsuarioPedido);
 }
