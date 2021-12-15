@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class LoginPage implements OnInit {
 
   private UsuarioLoggedId: number;
+  private adminLogged: number;
   private correo: any;
   private contrasena: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(
   ) {
     if(localStorage.getItem("UsuarioLoggedId")){
       this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
     }
+    if(localStorage.getItem("adminLogged")){
+      this.adminLogged =+ localStorage.getItem('adminLogged')
+    }
     
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
 
     console.log(this.UsuarioLoggedId)
+    console.log(this.adminLogged)
   } 
 
   Login(){
@@ -33,6 +39,7 @@ export class LoginPage implements OnInit {
           query{
             usuarioLogged(correoElectronico:\"`+this.correo+`\",contrasena:\"`+this.contrasena+`\"){
               idUsuario
+              admin
             }
           }`
         })
@@ -40,8 +47,11 @@ export class LoginPage implements OnInit {
       .then(res => res.json())
       .then(ID => {
         localStorage.setItem('UsuarioLoggedId', `${ ID.data.usuarioLogged.idUsuario }`)
+        localStorage.setItem('adminLogged', `${ ID.data.usuarioLogged.admin }`)
         localStorage.setItem('usuarioLogged',`${ 1 }`);
+        this.router.navigateByUrl("/user")
     });
+    
   }
   
 }

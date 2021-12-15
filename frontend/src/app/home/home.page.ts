@@ -23,6 +23,7 @@ export class HomePage implements OnInit{
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
 
     console.log(this.UsuarioLoggedId)
+    console.log(localStorage.getItem("adminLogged"))
   }
 
   

@@ -10,15 +10,18 @@ import { MenuController } from '@ionic/angular';
 export class MenuComponent implements OnInit {
 
   private UsuarioLoggedId: number;
+  private adminLogged: number;
 
   constructor(private menuCtrl: MenuController, private router: Router) { }
 
   ngOnInit() {
     if(localStorage.getItem("UsuarioLoggedId")){
+      this.adminLogged =+ localStorage.getItem('adminLogged')
       this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
     }
     
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
+    this.menuCtrl.swipeGesture(false)
   }
 
   toggleMenu(){
@@ -28,6 +31,7 @@ export class MenuComponent implements OnInit {
   logOut(){
     localStorage.removeItem('UsuarioLoggedId')
     localStorage.setItem('usuarioLogged', `${ 0 }`)
+    localStorage.removeItem('adminLogged')
     this.router.navigateByUrl("/login")
   }
 }

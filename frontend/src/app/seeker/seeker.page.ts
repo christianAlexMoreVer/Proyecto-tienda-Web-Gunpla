@@ -1,5 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalGunplaViewPage } from '../modal-gunpla-view/modal-gunpla-view.page';
 import { Gunpla } from '../models/gunplas';
 
 @Component({
@@ -11,8 +13,9 @@ export class SeekerPage implements OnInit {
 
   private UsuarioLoggedId: number;
   public gunplasByName: Array<Gunpla> = [];
+  private modelData: any;
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
 
@@ -24,10 +27,6 @@ export class SeekerPage implements OnInit {
 
     console.log(this.UsuarioLoggedId)
   } 
-
-  DisplayGunplaView(){
-    console.log("entrando")
-  }
 
   displayGunplasByName(ev: any) {
 
@@ -41,6 +40,7 @@ export class SeekerPage implements OnInit {
           query: `
               query{
                gunplaByName(nombre: \"`+val+`\"){
+                idMaqueta
                 nombre
                 breveIntro
                 imgFileName
@@ -60,6 +60,26 @@ export class SeekerPage implements OnInit {
       document.getElementById("results").style.display = "none";
     }
 
+  }
+
+  async DisplayGunplaView(g: any) {
+    
+    const modal = await this.modalController.create({
+      component: ModalGunplaViewPage,
+      componentProps: {
+        "gunpla" : g,
+      }
+
+    });
+
+    modal.onDidDismiss().then((modelData) => {
+      if (modelData !== null) {
+        this.modelData = modelData.data;
+        window.location.reload();
+      }
+    });
+
+    return await modal.present();
   }
 
 }

@@ -12,9 +12,9 @@ import { Usuario } from '../models/usuarios';
 })
 export class RegisterPage implements OnInit {
 
-  usuarioForm: FormGroup;
-  usuario: Usuario;
-  modelData: any;
+  private usuarioForm: FormGroup;
+  private usuario: Usuario;
+  private modelData: any;
   private UsuarioLoggedId: number;
 
   constructor(private router: Router,public formBuilder: FormBuilder,private zone: NgZone,private modalController: ModalController) 
@@ -47,7 +47,7 @@ export class RegisterPage implements OnInit {
         body: JSON.stringify({
           query: `
               mutation{
-                createUsuario(nombre: \"`+this.usuario.nombre+`\", apellidos: \"`+this.usuario.apellidos+`\", contrasena: \"`+this.usuario.contrasena+`\", correoElectronico: \"`+this.usuario.correoElectronico+`\"){
+                createUsuario(nombre: \"`+this.usuario.nombre+`\", apellidos: \"`+this.usuario.apellidos+`\", contrasena: \"`+this.usuario.contrasena+`\", correoElectronico: \"`+this.usuario.correoElectronico+`\", imgUser: \"Default.png\"){
                   nombre
           }
         }`

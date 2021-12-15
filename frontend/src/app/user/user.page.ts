@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pedido } from '../models/pedidos';
+import { Usuario } from '../models/usuarios';
 
 @Component({
   selector: 'app-user',
@@ -8,8 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class UserPage implements OnInit {
   
   private UsuarioLoggedId: number;
+  private usuario: Array<Usuario> = [];
+  private pedidosUsuario: Array<Pedido> = []
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
 
@@ -18,6 +22,47 @@ export class UserPage implements OnInit {
     }
     
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
+    
+    this.loadInfoUser();
   } 
 
+  loadInfoUser(){
+    fetch('http://localhost:8080/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
+              query{
+               usuario(id: `+this.UsuarioLoggedId+`){
+                nombre
+                apellidos
+                imgUser
+                correoElectronico
+          }
+        }`
+        })
+      })
+      .then(res => res.json())
+      .then(UsuarioLogged =>{
+        this.usuario.push(UsuarioLogged.data.usuario)
+      });
+
+      fetch('http://localhost:8080/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
+              query{
+               pedidosUser(id: `+this.UsuarioLoggedId+`){
+                idPedido
+                idMaqueta
+          }
+        }`
+        })
+      })
+      .then(res => res.json())
+      .then(PEDIDOS =>{
+        this.pedidosUsuario.push(PEDIDOS.data.pedidosUser)
+      });
+  }
 }

@@ -27,7 +27,7 @@ export class ModalRegistrationSuccessPage implements OnInit {
     await this.modalController.dismiss(close);
   }
 
-  goToLoggin() {
+  goToLogin() {
     this.router.navigateByUrl("/login")
     this.modalController.dismiss(close);
   }

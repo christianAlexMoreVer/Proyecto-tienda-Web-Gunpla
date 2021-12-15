@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <app-header></app-header>
+</ion-header>
+
+<ion-content id="maquetas-table">
+  <ion-item>
+    <ion-button class="btn" size="large" (click)="addMaqueta()">añadir maqueta</ion-button>
+  </ion-item>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>idMaqueta</th>
+        <th>nombre</th>
+        <th>precio</th>
+        <th>escala</th>
+        <th>tipoGrado</th>
+        <th>breveIntro</th>
+        <th>descripcion</th>
+        <th>imgFileName</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let g of gunplas">
+      <tr (click)="openIonModalMaqueta(g)">
+        <td>{{g.idMaqueta}}</td>
+        <td>{{g.nombre}}</td>
+        <td>{{g.precio}}</td>
+        <td>{{g.escala}}</td>
+        <td>{{g.tipoGrado}}</td>
+        <td>{{g.breveIntro}}</td>
+        <td>{{g.descripcion}}</td>
+        <td>{{g.imgFileName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>
+
+<ion-content id="pedidos-table">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>idPedido</th>
+        <th>idUsuarioPedido</th>
+        <th>idMaqueta</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let p of pedidos">
+      <tr (click)="openIonModalPedido(p)">
+        <td>{{p.idPedido}}</td>
+        <td>{{p.idUsuarioPedido}}</td>
+        <td>{{p.idMaqueta}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>
+
+<ion-content id="usuarios-table">
+  <ion-item>
+    <ion-button class="btn" size="large" (click)="addAdmin()">añadir admin</ion-button>
+  </ion-item>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>idUsuario</th>
+        <th>nombre</th>
+        <th>apellidos</th>
+        <th>correoElectronico</th>
+        <th>imgUser</th>
+        <th>admin</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let u of usuarios">
+      <tr (click)="openIonModalUser(u)">
+        <td>{{u.idUsuario}}</td>
+        <td>{{u.nombre}}</td>
+        <td>{{u.apellidos}}</td>
+        <td>{{u.correoElectronico}}</td>
+        <td>{{u.imgUser}}</td>
+        <td>{{u.admin}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button (click)="mostrarMaquetas()">
+        <ion-icon src="../../assets/icon/Maqueta.svg"></ion-icon>
+        <ion-label>Maquetas</ion-label>
+      </ion-tab-button>
+      <ion-tab-button (click)="mostrarUsuarios()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Usuarios</ion-label>
+      </ion-tab-button>
+      <ion-tab-button (click)="mostrarPedidos()">
+        <ion-icon name="reader-outline"></ion-icon>
+        <ion-label>Pedidos</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

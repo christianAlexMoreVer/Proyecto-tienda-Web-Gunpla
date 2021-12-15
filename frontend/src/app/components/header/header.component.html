@@ -1,23 +1,26 @@
 <ion-toolbar>
   <ion-tabs>
     <ion-tab-bar slot="top">
-      <ion-tab-button (click)="toggleMenu()">
+      <ion-tab-button (click)="toggleMenu()" *ngIf="this.UsuarioLoggedId > 0">
         <ion-icon name="menu-outline"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button href="/home">
+      <ion-tab-button href="/home" *ngIf="this.adminLogged == 0">
         <ion-icon src="../../assets/icon/Maqueta.svg" style="width: 50px; height: 50px;"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button href="/seeker" *ngIf="this.UsuarioLoggedId > 0">
+      <ion-tab-button href="/seeker" *ngIf="this.UsuarioLoggedId > 0 && this.adminLogged == 0">
         <ion-icon name="search-circle-outline" class="icon"></ion-icon>
         <ion-label>Buscador</ion-label>
       </ion-tab-button>
-      <ion-tab-button href="/user" *ngIf="this.UsuarioLoggedId > 0">
+      <ion-tab-button href="/user" *ngIf="this.UsuarioLoggedId > 0 && this.adminLogged == 0">
         <ion-icon name="person-circle-outline" class="icon"></ion-icon>
         <ion-label>Mi Perfil</ion-label>
       </ion-tab-button>
-      <ion-tab-button href="/login" *ngIf="this.usuarioLogged !== 1">
+      <ion-tab-button href="/login" *ngIf="this.usuarioLogged !== 1 && this.adminLogged == 0">
         <ion-icon name="person-circle-outline" class="icon"></ion-icon>
         <ion-label>Iniciar Sesión</ion-label>
+      </ion-tab-button>
+      <ion-tab-button href="/tables-admin" *ngIf="this.adminLogged == 1">
+        <ion-icon name="server-outline"></ion-icon>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

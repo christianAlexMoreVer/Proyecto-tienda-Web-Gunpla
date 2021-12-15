@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   private UsuarioLoggedId: number;
   private usuarioLogged: number;
+  private adminLogged: number;
 
   constructor(private menuCtrl: MenuController) { }
 
@@ -19,11 +20,11 @@ export class HeaderComponent implements OnInit {
     if(localStorage.getItem("UsuarioLoggedId")){
       this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
       this.usuarioLogged =+ localStorage.getItem('usuarioLogged');
+      this.adminLogged =+ localStorage.getItem('adminLogged')
     }
 
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
 
-    console.log(this.usuarioLogged)
   } 
 
   toggleMenu(){

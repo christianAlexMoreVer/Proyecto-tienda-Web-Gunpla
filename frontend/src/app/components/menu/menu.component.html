@@ -1,19 +1,19 @@
 <ion-menu side="start" menuId="firstMenu" contentId="main">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Start Menu</ion-title>
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item>Mi perfil</ion-item>
+      <ion-item href="/user" *ngIf="this.adminLogged == 0">Mi perfil</ion-item>
       <ion-item>Centro de soporte</ion-item>
-      <ion-item>Buscador</ion-item>
+      <ion-item href="/seeker">Buscador</ion-item>
       <ion-item>
-        <ion-button class="btn" size="large" (click)="logOut()">Cerrar sesion</ion-button>
+        <ion-button class="btn" size="large" (click)="logOut()"><ion-icon name="exit-outline"></ion-icon>Cerrar sesión</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button class="btn" size="large" color="danger" (click)="toggleMenu()">Cerrar</ion-button>
+        <ion-button class="btn" size="large" color="danger" (click)="toggleMenu()">Cerrar menú</ion-button>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -4,5 +4,6 @@ export class Usuario{
     apellidos: string;
     contrasena: string;
     correoElectronico: string;
+    imgUser: string;
     admin: number;
   }

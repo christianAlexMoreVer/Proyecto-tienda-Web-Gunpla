@@ -4,6 +4,7 @@ export class Gunpla{
     precio: number;
     escala: string;
     tipoGrado: string;
+    breveIntro: string;
     descripcion: string;
     imgFileName: string;
   }
