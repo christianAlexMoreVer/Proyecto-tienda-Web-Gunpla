@@ -1,9 +1,3 @@
 # Proyecto-tienda-Web-Gunpla
 
-Propotipo:
-![alt text](/Capturas(GitHub)/acercaDe.png)
-![alt text](/Capturas(GitHub)/acercaDe.png)
-![alt text](/Capturas(GitHub)/acercaDe.png)
-![alt text](/Capturas(GitHub)/acercaDe.png)
-![alt text](/Capturas(GitHub)/acercaDe.png)
-![alt text](/Capturas(GitHub)/acercaDe.png)
+Documentacion al proyecto: https://docs.google.com/document/d/1xifagE6CwsvUnVXOsqYciMkmwfB8l-JDsERd2Jw7w18/edit?usp=sharing
