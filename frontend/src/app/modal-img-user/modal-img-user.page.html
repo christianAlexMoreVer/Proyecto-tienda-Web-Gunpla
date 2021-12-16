@@ -1,0 +1,12 @@
+<ion-header>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <div class="container">
+    <ion-item>
+      <ion-label floating>Imagen</ion-label>
+      <ion-input type="file" multiple="false" [(ngModel)]="img" (change)=uploadImg($event)></ion-input>
+  </ion-item> 
+    <ion-button (click)="updateImgUser()">Cambiar imagen</ion-button>
+  </div>
+</ion-content>
