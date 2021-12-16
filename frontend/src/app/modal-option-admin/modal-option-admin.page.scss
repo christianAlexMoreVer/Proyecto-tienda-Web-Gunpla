@@ -3,7 +3,7 @@ ion-content.background{
 }
 
 
-.container{
+#container-options{
     text-align: center;
     background-color:#CFDFEB;
     font-family:'Roboto', sans-serif;
@@ -11,6 +11,51 @@ ion-content.background{
     opacity: 95%;
     border-radius:13px;
 	border:1px solid black;
-    margin-top: 100px;
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+#container-FormMaqueta{
+    display: none;
+    text-align: center;
+    background-color:#CFDFEB;
+    font-family:'Roboto', sans-serif;
+    font-size:15px;
+    opacity: 95%;
+    border-radius:13px;
+	border:1px solid black;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+#container-FormUsuario{
+    display: none;
+    text-align: center;
+    background-color:#CFDFEB;
+    font-family:'Roboto', sans-serif;
+    font-size:15px;
+    opacity: 95%;
+    border-radius:13px;
+	border:1px solid black;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+#container-FormPedido{
+    display: none;
+    text-align: center;
+    background-color:#CFDFEB;
+    font-family:'Roboto', sans-serif;
+    font-size:15px;
+    opacity: 95%;
+    border-radius:13px;
+	border:1px solid black;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
     width: 300px;
 }

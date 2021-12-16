@@ -62,7 +62,7 @@ export class ModalGunplaViewPage implements OnInit {
       body: JSON.stringify({
         query: `
               mutation{
-                createPedido(idUsuarioPedido: `+ this.UsuarioLoggedId +`, idMaqueta `+ this.gunpla.idMaqueta +`){
+                createPedido(idUsuarioPedido: `+ this.UsuarioLoggedId +`, idMaqueta: `+ this.gunpla.idMaqueta +`){
                 idUsuarioPedido
           }
         }`

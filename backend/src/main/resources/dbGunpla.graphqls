@@ -40,10 +40,11 @@ type Query {
 }
 
 type Mutation {
-	createGunpla(nombre: String, precio: Int, escala: String, tipoGrado: String, breveIntro: String, descripcion: String): Gunpla
+	createGunpla(nombre: String, precio: Int, escala: String, tipoGrado: String, breveIntro: String, descripcion: String, imgFileName: String): Gunpla
 	createUsuario(nombre: String, apellidos: String, contrasena: String, correoElectronico: String, imgUser: String): Usuario
+	createAdmin(nombre: String, apellidos: String, contrasena: String, correoElectronico: String, imgUser: String, admin: Int): Usuario
 	createPedido(idUsuarioPedido: Int, idMaqueta: Int): Pedido
-	updateGunpla(idMaqueta: ID, nombre: String, precio: Int, escala: String, tipoGrado: String, breveIntro: String, descripcion: String): Gunpla
+	updateGunpla(idMaqueta: ID, nombre: String, precio: Int, escala: String, tipoGrado: String, breveIntro: String, descripcion: String, imgFileName: String): Gunpla
 	updateUsuario(idUsuario: ID, nombre: String, apellidos: String, contrasena: String, correoElectronico: String): Usuario
 	updateUsuarioImgUser(idUsuario: ID, imgUser: String): Usuario
 	updatePedido(idPedido: ID, idUsuarioPedido: Int, idMaqueta: Int): Pedido

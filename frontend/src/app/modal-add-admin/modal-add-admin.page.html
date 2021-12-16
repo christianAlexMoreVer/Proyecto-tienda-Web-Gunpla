@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>modal-add-admin</ion-title>
+    <ion-title>Añadiendo admin</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="nombre" placeholder="Introduce un nombre: "></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Apellidos</ion-label>
+          <ion-input type="text" [(ngModel)]="apellidos" placeholder="Introduce un nombre: "></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input type="text" [(ngModel)]="contrasena" placeholder="Introduce un nombre: "></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Correo Electrónico</ion-label>
+          <ion-input type="text" [(ngModel)]="correoElectronico" placeholder="Introduce un nombre: "></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

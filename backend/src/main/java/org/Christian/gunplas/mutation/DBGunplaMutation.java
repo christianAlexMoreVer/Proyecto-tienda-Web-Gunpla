@@ -23,8 +23,8 @@ public class DBGunplaMutation implements GraphQLMutationResolver {
 	@Autowired
 	IEncryptService encryptService;
 	
-	public Gunpla createGunpla(String nombre, int precio, String escala, String tipoGrado, String breveIntro ,String descripcion) {
-		Gunpla gunpla = new Gunpla (nombre, precio, escala, tipoGrado, breveIntro ,descripcion);
+	public Gunpla createGunpla(String nombre, int precio, String escala, String tipoGrado, String breveIntro ,String descripcion, String imgFileName) {
+		Gunpla gunpla = new Gunpla (nombre, precio, escala, tipoGrado, breveIntro ,descripcion, imgFileName);
 		return gunplaService.addGunplaGraphQL(gunpla);
 	}
 	
@@ -35,13 +35,20 @@ public class DBGunplaMutation implements GraphQLMutationResolver {
 		return usuarioService.addUsuarioGraphQL(usuario);
 	}
 	
+	public Usuario createAdmin(String nombre, String apellidos, String contrasena, String correoElectronico, String imgUser, int admin) {
+		Usuario usuario = new Usuario (nombre, apellidos, contrasena, correoElectronico, imgUser, admin);
+		String hashPass = encryptService.encryptPassword(usuario.getContrasena());
+		usuario.setContrasena(hashPass);
+		return usuarioService.addUsuarioGraphQL(usuario);
+	}
+	
 	public Pedido createPedido(long idUsuarioPedido, long idMaqueta) {
 		Pedido pedido = new Pedido (idUsuarioPedido, idMaqueta);
 		return pedidoService.addPedidoGraphQL(pedido);
 	}
 	
-	public Gunpla updateGunpla(long idMaqueta,String nombre, int precio, String escala, String tipoGrado,String breveIntro,  String descripcion) {
-		Gunpla gunpla = new Gunpla (nombre, precio, escala, tipoGrado,breveIntro, descripcion);
+	public Gunpla updateGunpla(long idMaqueta,String nombre, int precio, String escala, String tipoGrado,String breveIntro,  String descripcion, String imgFileName) {
+		Gunpla gunpla = new Gunpla (nombre, precio, escala, tipoGrado,breveIntro, descripcion, imgFileName);
 		return gunplaService.updateGunplaGraphQL(gunpla, idMaqueta);
 	}
 	

@@ -10,10 +10,12 @@
       <p>{{u.correoElectronico}}</p>
       <div class="media p-3">
         <img src="../../assets/img/IconoUser.png" alt="Maquetas Pedidas" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+        <h4>Pedidos</h4>
         <div class="media-body" *ngFor="let p of pedidosUsuario">
-          <h4>{{u.nombre}}</h4>
-          <p>{{p.idPedido}}</p>
-          <p>{{p.idMaqueta}}</p>
+          <div class="pedidosDisplay">
+            <p>Id de tu pedido:{{p.idPedido}}</p>
+            <p> Id de tu maqueta:{{p.idMaqueta}}</p>
+          </div>
         </div>
       </div> 
     </div>

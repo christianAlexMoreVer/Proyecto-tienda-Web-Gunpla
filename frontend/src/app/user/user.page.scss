@@ -7,3 +7,19 @@ ion-content.background{
   opacity: 85%;
   border:1px solid black !important;
 }
+
+.pedidosDisplay{
+  display: flex;
+  justify-content: space-around;
+  padding: auto;
+  margin: auto;
+  flex-direction: column;
+  font-family:'Roboto', sans-serif;
+  font-size:15px;
+}
+
+.media{
+  background-color:#CFDFEB;
+	border-radius:13px;
+	border:1px solid black;
+}

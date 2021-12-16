@@ -2,9 +2,92 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="background">
-  <div class="container">
+  <div id="container-options">
     <h3>!! Estas modificando datos de la base de datos cuidado ¡¡</h3>
-    <ion-button class="btn" size="large" color="danger">Borrar</ion-button>
-    <ion-button class="btn" size="large">Actualizar</ion-button>
+    <ion-button class="btn" size="large" color="danger" (click)=deleteElement()>Borrar</ion-button>
+    <ion-button class="btn" size="large" (click)=uploadElement()>Actualizar</ion-button>
+    <ion-button class="btn" size="large" (click)=closeModel()>cerrar</ion-button>
+  </div>
+
+  <div id="container-FormMaqueta">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <ion-item>
+            <ion-label floating>Nombre Maqueta</ion-label>
+            <ion-input type="text" [(ngModel)]="nombre" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Precio</ion-label>
+            <ion-input type="text" [(ngModel)]="precio" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Escala</ion-label>
+            <ion-input type="text" [(ngModel)]="escala" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Tipo Grado</ion-label>
+            <ion-input type="text" [(ngModel)]="tipoGrado" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Descripcion</ion-label>
+            <ion-input type="text" [(ngModel)]="descripcion" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Breve Intro</ion-label>
+            <ion-input type="text" [(ngModel)]="breveIntro" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Imagen</ion-label>
+            <ion-input type="file" multiple="false" [(ngModel)]="img" (change)=uploadImg($event)></ion-input>
+          </ion-item>
+          <ion-button class="btn" size="large" (click)=updateMaqueta()>Actualizar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div id="container-FormUsuario">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <ion-item>
+            <ion-label floating>Nombre</ion-label>
+            <ion-input type="text" [(ngModel)]="nombreUser" placeholder="Introduce un nombre: "></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Apellidos</ion-label>
+            <ion-input type="text" [(ngModel)]="apellidos" placeholder="Introduce un nombre: "></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input type="text" [(ngModel)]="contrasena" placeholder="Introduce un nombre: "></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Correo Electrónico</ion-label>
+            <ion-input type="text" [(ngModel)]="correoElectronico" placeholder="Introduce un nombre: "></ion-input>
+          </ion-item>
+          <ion-button class="btn" size="large" (click)=updateUsuario()>Actualizar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div id="container-FormPedido">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <ion-item>
+            <ion-label floating>ID del usuario del pedido</ion-label>
+            <ion-input type="text" [(ngModel)]="idUsuarioPedido" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>ID de la maqueta del pedido</ion-label>
+            <ion-input type="text" [(ngModel)]="idMaqueta" placeholder=""></ion-input>
+          </ion-item>
+          <ion-button class="btn" size="large" (click)=updatePedido()>Actualizar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

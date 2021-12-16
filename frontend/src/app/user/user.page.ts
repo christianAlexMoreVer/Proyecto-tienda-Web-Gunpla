@@ -20,7 +20,7 @@ export class UserPage implements OnInit {
     if(localStorage.getItem("UsuarioLoggedId")){
       this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
     }
-    
+    console.log(this.UsuarioLoggedId); 
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
     
     this.loadInfoUser();
@@ -62,7 +62,7 @@ export class UserPage implements OnInit {
       })
       .then(res => res.json())
       .then(PEDIDOS =>{
-        this.pedidosUsuario.push(PEDIDOS.data.pedidosUser)
+        this.pedidosUsuario = (PEDIDOS.data.pedidosUser)
       });
   }
 }

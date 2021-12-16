@@ -118,7 +118,7 @@ export class TablesAdminPage implements OnInit {
     const modal = await this.modalController.create({
       component: ModalOptionAdminPage,
       componentProps: {
-        "element" : g,
+        "gunpla" : g,
       }
 
     });
@@ -138,7 +138,7 @@ export class TablesAdminPage implements OnInit {
     const modal = await this.modalController.create({
       component: ModalOptionAdminPage,
       componentProps: {
-        "element" : p,
+        "pedido" : p,
       }
 
     });
@@ -158,7 +158,7 @@ export class TablesAdminPage implements OnInit {
     const modal = await this.modalController.create({
       component: ModalOptionAdminPage,
       componentProps: {
-        "element" : u,
+        "usuario" : u,
       }
 
     });
