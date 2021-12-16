@@ -26,7 +26,7 @@ export class ModalOptionAdminPage implements OnInit {
   private correoElectronico: any;
   private idUsuarioPedido: any;
   private idMaqueta: any;
-  private formData = new FormData();
+  private static imgTest: any;
 
   constructor(private modalController: ModalController, private router: Router) { }
 
@@ -52,11 +52,17 @@ export class ModalOptionAdminPage implements OnInit {
     const file = event.target.files[0];
 
     if (this.validFileType(file)) {
-      this.img = file
-      this.formData.append('file', this.img)
+      let reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = function (e) {
+        ModalOptionAdminPage.setImage(reader.result)
+      }
       this.imgFileName = file.name;
-      this.formData.append('nombre', this.imgFileName)
     };
+  }
+
+  static setImage(x: any) {
+    ModalOptionAdminPage.imgTest = x;
   }
 
   async closeModel() {
@@ -98,16 +104,17 @@ export class ModalOptionAdminPage implements OnInit {
   }
 
   updateMaqueta(){
+    this.img = ModalOptionAdminPage.imgTest;  
     fetch('http://localhost:8080/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `
-                  mutation {
-                    updateGunpla(idMaqueta: `+this.gunpla.idMaqueta+`, nombre: \"`+this.nombre+`\", precio: `+this.precio+`, escala: \"`+this.escala+`\", tipoGrado: \"`+this.tipoGrado+`\", breveIntro: \"`+this.breveIntro+`\", descripcion: \"`+this.descripcion+`\", imgFileName: \"`+this.imgFileName+`\"){
-                      nombre
-                    }
-                  }`
+              mutation{
+                updateGunpla(nombre: \"`+ this.nombre + `\", precio: ` + this.precio + `, escala: \"` + this.escala + `\", tipoGrado: \"` + this.tipoGrado + `\", breveIntro: \"` + this.breveIntro + `\", descripcion: \"` + this.descripcion + `\", imgFileName: \"` + this.imgFileName + `\", img64: \"` + this.img + `\"){
+                nombre
+          }
+        }`
       })
     })
       .then(res => res.json())

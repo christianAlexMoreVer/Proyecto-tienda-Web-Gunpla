@@ -1,12 +1,6 @@
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-
-const HttpHeader = {
-  headers: new HttpHeaders({
-  "enctype": "multipart/form-data; boundary=----WebKitFormBoundaryuL67FWkv1CA"
-})};
 
 @Component({
   selector: 'app-modal-add-maqueta',
@@ -22,13 +16,12 @@ export class ModalAddMaquetaPage implements OnInit {
   private breveIntro: any;
   private descripcion: any;
   private imgFileName: any;
-  private img: File;
-  private formData = new FormData();
+  private img: any;
+  private static imgTest: any;
 
   constructor(
     private router: Router,
     private modalController: ModalController,
-    private http: HttpClient
 
   ) {
   }
@@ -55,29 +48,35 @@ export class ModalAddMaquetaPage implements OnInit {
     const file = event.target.files[0];
 
     if (this.validFileType(file)) {
-      this.img = file
-      this.formData.append('file', this.img)
+      let reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = function (e) {
+        ModalAddMaquetaPage.setImage(reader.result)
+      }
       this.imgFileName = file.name;
-      this.formData.append('nombre', this.imgFileName)
     };
   }
 
+  static setImage(x: any) {
+    ModalAddMaquetaPage.imgTest = x;
+  }
 
-createMaqueta(){
-  fetch('http://localhost:8080/graphql', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      query: `
+
+  createMaqueta() {
+    this.img = ModalAddMaquetaPage.imgTest;  
+    fetch('http://localhost:8080/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
               mutation{
-                createGunpla(nombre: \"`+ this.nombre + `\", precio: ` + this.precio + `, escala: \"` + this.escala + `\", tipoGrado: \"` + this.tipoGrado + `\", breveIntro: \"` + this.breveIntro + `\", descripcion: \"` + this.descripcion + `\", imgFileName: \"` + this.imgFileName + `\"){
+                createGunpla(nombre: \"`+ this.nombre + `\", precio: ` + this.precio + `, escala: \"` + this.escala + `\", tipoGrado: \"` + this.tipoGrado + `\", breveIntro: \"` + this.breveIntro + `\", descripcion: \"` + this.descripcion + `\", imgFileName: \"` + this.imgFileName + `\", img64: \"` + this.img + `\"){
                 nombre
           }
         }`
+      })
     })
-  })
-    .then(res => res.json())
-    this.http.post<any>("http://localhost:8080/image/maqueta", this.formData, HttpHeader).subscribe(res=>{console.log(res);})
-}
+      .then(res => res.json())
+  }
 
 }

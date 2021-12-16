@@ -49,6 +49,10 @@ const routes: Routes = [
   {
     path: 'modal-add-admin',
     loadChildren: () => import('./modal-add-admin/modal-add-admin.module').then( m => m.ModalAddAdminPageModule)
+  },
+  {
+    path: 'modal-img-user',
+    loadChildren: () => import('./modal-img-user/modal-img-user.module').then( m => m.ModalImgUserPageModule)
   }
 
 ];

@@ -4,7 +4,7 @@
 
 <ion-content [fullscreen]="true" class="background">
   <div id="user" class="media border p-3" *ngFor="let u of usuario">
-    <img src="http://localhost:8080/img/usuarios/{{u.imgUser}}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+    <img (click)=openModalImgUser() src="http://localhost:8080/img/usuarios/{{u.imgUser}}" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
     <div class="media-body">
       <h4>{{u.nombre}}<small><i> {{u.apellidos}}</i></small></h4>
       <p>{{u.correoElectronico}}</p>

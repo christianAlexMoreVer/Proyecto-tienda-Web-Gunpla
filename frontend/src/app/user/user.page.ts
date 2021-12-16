@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalImgUserPage } from '../modal-img-user/modal-img-user.page';
 import { Pedido } from '../models/pedidos';
 import { Usuario } from '../models/usuarios';
 
@@ -12,19 +14,38 @@ export class UserPage implements OnInit {
   private UsuarioLoggedId: number;
   private usuario: Array<Usuario> = [];
   private pedidosUsuario: Array<Pedido> = []
-
-  constructor() {}
+  private modelData: any;
+  
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {
 
     if(localStorage.getItem("UsuarioLoggedId")){
       this.UsuarioLoggedId =+ localStorage.getItem('UsuarioLoggedId');
     }
-    console.log(this.UsuarioLoggedId); 
     localStorage.setItem('UsuarioLoggedId',`${ this.UsuarioLoggedId }`);
     
     this.loadInfoUser();
   } 
+
+  async openModalImgUser(u: any){
+    const modal = await this.modalController.create({
+      component: ModalImgUserPage,
+      componentProps: {
+        "u" : u,
+      }
+
+    });
+
+    modal.onDidDismiss().then((modelData) => {
+      if (modelData !== null) {
+        this.modelData = modelData.data;
+        window.location.reload();
+      }
+    });
+
+    return await modal.present();
+  }
 
   loadInfoUser(){
     fetch('http://localhost:8080/graphql', {

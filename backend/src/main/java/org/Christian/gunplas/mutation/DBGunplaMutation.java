@@ -1,5 +1,12 @@
 package org.Christian.gunplas.mutation;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Base64;
+import java.util.Base64.Decoder;
+
 import org.Christian.gunplas.entity.models.Gunpla;
 import org.Christian.gunplas.entity.models.Pedido;
 import org.Christian.gunplas.entity.models.Usuario;
@@ -23,8 +30,14 @@ public class DBGunplaMutation implements GraphQLMutationResolver {
 	@Autowired
 	IEncryptService encryptService;
 	
-	public Gunpla createGunpla(String nombre, int precio, String escala, String tipoGrado, String breveIntro ,String descripcion, String imgFileName) {
+	public Gunpla createGunpla(String nombre, int precio, String escala, String tipoGrado, String breveIntro ,String descripcion, String imgFileName, String img64)throws IOException {
 		Gunpla gunpla = new Gunpla (nombre, precio, escala, tipoGrado, breveIntro ,descripcion, imgFileName);
+		String processedImg64 = img64.substring(img64.indexOf(",")+1);
+		Decoder dec = Base64.getDecoder();
+		OutputStream outputStream = null;
+		byte[] fileBytes = dec.decode(processedImg64);
+		outputStream = new FileOutputStream(new File("src/main/resources/static/img/maquetas" , imgFileName));
+		outputStream.write(fileBytes);
 		return gunplaService.addGunplaGraphQL(gunpla);
 	}
 	
@@ -47,8 +60,14 @@ public class DBGunplaMutation implements GraphQLMutationResolver {
 		return pedidoService.addPedidoGraphQL(pedido);
 	}
 	
-	public Gunpla updateGunpla(long idMaqueta,String nombre, int precio, String escala, String tipoGrado,String breveIntro,  String descripcion, String imgFileName) {
+	public Gunpla updateGunpla(long idMaqueta,String nombre, int precio, String escala, String tipoGrado,String breveIntro,  String descripcion, String imgFileName, String img64)throws IOException {
 		Gunpla gunpla = new Gunpla (nombre, precio, escala, tipoGrado,breveIntro, descripcion, imgFileName);
+		String processedImg64 = img64.substring(img64.indexOf(",")+1);
+		Decoder dec = Base64.getDecoder();
+		OutputStream outputStream = null;
+		byte[] fileBytes = dec.decode(processedImg64);
+		outputStream = new FileOutputStream(new File("src/main/resources/static/img/maquetas" , imgFileName));
+		outputStream.write(fileBytes);
 		return gunplaService.updateGunplaGraphQL(gunpla, idMaqueta);
 	}
 	
@@ -59,7 +78,13 @@ public class DBGunplaMutation implements GraphQLMutationResolver {
 		return usuarioService.updateUsuarioGraphQL(usuario, idUsuario);
 	}
 	
-	public Usuario updateUsuarioImgUser(long idUsuario, String imgUser) {
+	public Usuario updateUsuarioImgUser(long idUsuario, String imgUser, String img64)throws IOException{
+		String processedImg64 = img64.substring(img64.indexOf(",")+1);
+		Decoder dec = Base64.getDecoder();
+		OutputStream outputStream = null;
+		byte[] fileBytes = dec.decode(processedImg64);
+		outputStream = new FileOutputStream(new File("src/main/resources/static/img/Usuarios" , imgUser));
+		outputStream.write(fileBytes);
 		return usuarioService.updateUsuarioImgUser(imgUser, idUsuario);
 	}
 	
